@@ -45,7 +45,17 @@ I disagree -- different modalities and channel set-ups have different affordance
 (generally, insert railing against over splitting approach here)
 
 
+\section{generally right ideas from Robert (not sure how to classify)}
 
+\cite{hawkins2020b} one question here is how are people so flexible in how they describe things. There's some ad hoc pragmatic reasoning going on, also people have learning mechanisms and can adapt to their partners. In the world, there's new things to experience, so we need ways of using language in new ones (that's just part of the necessary language capacity). There's also going to be new people and contexts, so we have to operate under uncertainty -- we don't know exactly what is shared. Also there's person to person variation in semantics / how they use words. And we can use feedback (verbal and not) to adjust. 
+
+Pragmatics isn't some special thing, these are actually pretty universal. We're closer to living in tangram world than we think. (Except that we usually don't even have such a nice closed class of alternatives) 
+
+Arbitrariness and stability on the semantic side 
+
+\cite{hawkins2020b} How do you break symmetries in initial descriptions: there's prior variability across speaker preferences (they may each have a preferred label, but be unsure if others will accept it) and/or speakers may also not have labels and need to do some sampling. This doesn't account for production time course factors. 
+
+ 
 \section{Unsatisfying open ?: Groups}
 
 \cite{clark1996} focuses very much on dyadic interaction, and is in the vein that multi-person is serial dialog (verify this last part). 
@@ -57,6 +67,11 @@ One question is how you extend RSA up to multiple people -- how to do an utteran
 groups allow for more complex structures. \cite{fay2000} tries to look at whether 5 and 10 person groups behave more like dialog or serial monolog (to the group) -- I think it's unclear that this is useful -- how do you define interactions / how do you usefully measure commonalities. There is a suggestion that there may be a transition point in how groups behave, possibly around 10 people, although context and goals seem very likely to push this around 
 
 how to account for side conversations or parallel tracks which are available in some modalities (and not others) also other mediums such as fora / discord / slack have different affordances for allowing branching and parallel things that might be better for groups 
+
+Groups can be complicated \cite{guilbeault2021} looks at how different sizes of groups interacting over a network structure result in different category boundaries, where large groups end up more the same than small groups. Brings up questions about network structure and how we should think about networks even within groups where multiple people are interacting synchronously. Some of the other try to only allow lines between points -- either bidirectional is dialog or single-directional in monolog but there's still the development of shared stuff from the co-presence of listening to someone else even without direct interaction? 
+
+There should be some gradients in terms of these forms of more indirect interaction that aren't explained by dyadic models because the mechanisms that are claimed to support the partner specificity don't cover it (for in part being too low level?)
+
 
 \section{Misc: Semantics}
 One central issue that comes up when discussing linguistic communication is the semantics-pragmatics divide (if you believe in that) or how word meanings are represented. Words certainly have conventionalized meanings (that's how we can talk to people who we haven't talked to before), but there's questions about what the representations are and separately, what an appropriate way to model them is. 
@@ -73,6 +88,7 @@ raises lots of philosophy questions about whether intent is required for somethi
 
 \section{Interpersonal / Common ground}
 
+evidently, \cite{hanna2003} has a less crazy definition of CG ? 
 \cite{fay2010} calls this being "given" within a pair or community 
 Common ground is frequently alluded to, but inconsistency in how the term is used poses problems. It is also usually framed within a non-probabilistic framework. Here I attempt to lay out what sort of common knowledge system is useful. 
 
@@ -194,6 +210,23 @@ there's a conflict between compositionality (which \cite{degen20200406} get arou
 
 \cite{frank2012a} This is an information theoretic approach, with the goal as to how to quantitatively predict pragmatic inference in context (that's the big goal). Question here is how to do this with less clear referents like abstract things. Features that matter are the contextual salience (although this is sometimes ignored) and a surprisal-based informativeness measure (how much the utterance reduces uncertainty) which could either be empirically or semantic-system calculated. Lots of work is about how to scale this system up to things that eventually come into contact with interesting interactions. Although also may be able to account for some conventionalized pragmatics too. 
 
+\cite{goodman2016} RSA is a computational framework for making quantitative predictions about pragmatic behavior. Variations on RSA pull out different features could be at play -- in some sense a full model would have to include all of these, but many are particularly relevant in different situations and so get modeled in those cases. 
+
+Again a big question is how to ground the semantics of the literal listener -- what usage is based (and what is pragmatic enhancement), and what sort of semantics even works. Truth value doesn't work all the time, how to introduce uncertainty there? 
+
+Some RSA models incorporate cost terms -- abstraction of various things, which is probably related to efficiency pressures (or is modelling the causes of efficiency pressure) 
+
+Questions of how to model uncertainty over word meanings and other parts of interlocuter states (what do they know if this is not mutual knowledge) or their goals
+
+Things that at one point may have been pragmatics become entrenched by usage (possibly within partner specific ad hoc interactions, but certainly over time for a community) 
+
+\cite{goodman2013} this paper again raises the question of what's the right literal meaning to use  -- is it some sort of context free expectation? 
+
+How much do extra-linguistic, domain general factors affect pragmatics? Priors? Seems like there's a fine grained interaction between knowledge and implicature (not really sure what I meant here)
+
+Connection to CG: but how deep does recursion go? Could look at the Franke \& Degen for some of this, but generally seems to be only a couple stages on this recursion, so maybe recursion for CG is also only a couple stages -- not sure how strong the connection is here
+
+
 
 \section{Psycholinguistic considerations}
 Unsure how these few things fit together, but a few things to consider.
@@ -204,7 +237,26 @@ Another issue is production (in terms of alternative generation, if we think RSA
 
 Because this is language, there also seem to be strong habits or expectations about form. Like, there's a level of syntactic well-formedness that's expected, even if it's in some sense inefficient. What's the psycholinguistics here? Is this actually what's fastest to produce because of the habits of mapping to speech? Fastest to interpret? (Syntactic expections for there being a noun come into play in \cite{degen20200406} --> can't say blue without saying pin as well) 
 
+\cite{hanna2003} Looking at the time course of using the speaker's context in processing. Bug questions around whether people are initially egocentric in their interpretations. Makes some weird assumptions about what's required to take other's perspective, on a more mechanistic level, without paying attention to the possibility for some cached heuristics. 
+
+What would an egocentric perspective really be? Language only exists in relation to others (mostly), so how do we think about word meanings in the absence of considering the speaker (clearly there is some way of doing this, "generic speaker", whatever, but I don't know if it's well understood) there's probably also an interesting developmental component -- what's the interplay between language development and ToM development? 
+
+%TODO consider constraint based models 
+
+
 \section{Efficiency}
+
+\cite{gibson2019} ideas of communicative efficiency, complexity, and learnability- these are all factors that probably shape things. These are going to be context dependent on the usage situations. For in-context efficiency, if there's a lot of uncertainty on what will be an adequate description and there's a strong backchannel or possibility of incremental, then should try things because there's the opportunity for clarification. 
+
+\cite{gibson2019} for various syntactic things, including information locality, these might count as efficiency under the idea of making things maximally easy to understand. This is then going to be how fast can you sufficiently accurately construct the tree from the string, which will be how fast you can convey meaning, but on the comprehenders side? 
+
+seems like what's being minimized is the time to communicate including the production and comprehension processing times (expression length isn't the only thing that's minimized)
+
+Over time an arbitrary form-meaning mapping becomes systematic which then means that the mappings aren't arbitrary because there's embedded in this system and so couldn't change unilaterally. 
+
+\cite{gibson2019} it's hard to measure things like communicative utility which makes it harder to instantiate some of this theory (unclear which things are my thoughts in response and which are brought up in paper) 
+
+
 Lots of questions about efficiency (see also the notes taken below already)
 What are processes that shape efficiency (especially in real-time production)? How does efficiency shape interpretations? There's the long-form for rare bias, but that requires pretty well-formed alternative sets. 
 
