@@ -522,7 +522,7 @@ Might be conflicts between balancing syntactic weight for ease of I think compre
 
 
 \section{RSA / probabilistic models }
-\subsection{Misc: Semantics}
+
 One central issue that comes up when discussing linguistic communication is the semantics-pragmatics divide (if you believe in that) or how word meanings are represented. Words certainly have conventionalized meanings (that's how we can talk to people who we haven't talked to before), but there's questions about what the representations are and separately, what an appropriate way to model them is. 
 
 Is literal semantics a useful model? Clearly lots of formal semantics isn't psychologically plausible, but some of the approaches could be useful simplifications for plugging in to RSA. 
@@ -535,7 +535,8 @@ discussion of the difference between natural signs and signals -- which isn't a 
 raises lots of philosophy questions about whether intent is required for something to have meaning and questions about the developmental trajectory of all of this 
 
 \cite{murthy2022} on color chip associations with words. This uses a strongly uncertain framing where we have priors over word-color associations. How does this map up to words where there's more structure to the prior in some complicated way. Also evidence that one can learn a lot from feedback, including things that may have had really shallow priors. 
-\subsection{RSA proper}
+
+
 One point of distinction for a lot of theories is how they handle uncertainty on the part of interlocuters. Many do not and instead contort themselves to accomodate the fact that people make (in these models) assumptions about what others know based on appearance/etc (assuming member of speech community, assuming general knowledge ). But then they also have to specify accomodation and repair mechanisms to deal with when things that were treated as being commonly known where not known by the interlocuter. Especially in reference to hard to describe objects, people may not always describe things in ways that they "know" the other person will understand, which is harder to explain under these stricter models. 
 
 Probabilistic models allow for uncertainty over what other people know, and what others think words mean, etc etc, and thus some of the accomodation is more built in. 
@@ -575,7 +576,7 @@ How much do extra-linguistic, domain general factors affect pragmatics? Priors? 
 
 Connection to CG: but how deep does recursion go? Could look at the Franke \& Degen for some of this, but generally seems to be only a couple stages on this recursion, so maybe recursion for CG is also only a couple stages -- not sure how strong the connection is here
 
-\subsection{generally right ideas from Robert (not sure how to classify) maybe goes with RSA}
+
 
 \cite{hawkins2020b} one question here is how are people so flexible in how they describe things. There's some ad hoc pragmatic reasoning going on, also people have learning mechanisms and can adapt to their partners. In the world, there's new things to experience, so we need ways of using language in new ones (that's just part of the necessary language capacity). There's also going to be new people and contexts, so we have to operate under uncertainty -- we don't know exactly what is shared. Also there's person to person variation in semantics / how they use words. And we can use feedback (verbal and not) to adjust. 
 
@@ -619,21 +620,34 @@ note that the GD of \cite{hawkins2021} has reasonable things to say about childr
 
 
 \section{What I think is true}
-\subsection{General approach of what I think is right}
 
+We need theories that can fit in with theories at different levels and from adjacent fields. We should be clear about what level and scope of explanation a theory is trying to provide. 
 
+I think resource rational approaches are likely good. At a Marr level 1, some sort of RSA approach allows probabilistic integration of different goals and linguistic and non-linguistic information. Some of the real challenge here is that there are a lot of factors that can come into play depending on the features of the situation and the interlocuters. Eventually, you'd want a theory that would be able to explain all of them all at once, but that's fairly intractable. Instead, makes sense to stay aware of that goal and slot in different pieces as needed, as steps towards building a whole. 
 
-Boundedly rational approach to communication. Can be modeled on a Marr level 1 by some sort of RSA approach that probabilistic and admits to malleability by non and extra-linguistic factors. A full account would need many chunks, since the back and forth and incremental isn't well developed in that system. 
+Some particular challenges are the various ways that communication is open ended: it has open vocabulary, open issues of compositionality, open number of turns, and (with spoken language) is highly incremental with options to take actions or interrupt mid sentence. 
 
-At other levels, there's questions about how production works here and that may be a constraining factor that contributed to the approximateness if not everything is easy to produce quickly. 
+There are constraints on the optimality and these are also important to consider -- some of these may be memory constraints or processing constraints that are domain general about how veridical memories are and how much we know about and can track situations and interlocuters. If we start getting to implementational levels, or even just resource-rational levels, will need to start accounting for how many things can be integrated at once. 
 
-May resemble constraint-based in terms of optimizing with a bunch of soft constraints over what will or won't work well. 
-\subsection{Vaguely plausible}
-under some circumstances, people will do conscious reasoning like they're playing clue and use very explicit theory of mind 
+Another source of constraints for implementational levels is how the language production and processing system works -- what possible utterances are and how they are produced and how things can be structured are constrained by language. 
+
+Broadly think that efficiency is a driving factor and seems to have broad explanatory power, although we have to think about how it plays out in any particular situation. 
+
+For communication, we could see efficiency as manifesting in trying to optimize bits of (goal-relevant) information conveyal per unit time. Conversation is a complex process so there's a lot going on: there's a mapping of goal to relevant information (which might be lossy), the speaker then has the access words to produce (which may not be easy for descriping low-nameability referents), and produce them. The comprehender then has to parse the string, interpret it (along with whatevever pragmatic integration is required) and then take an action. Often efficiency is established on the basis of how long the words are, but in some cases saying more words may be efficient if it reduces production costs or comprehension costs (making the task easier, or making it easier to understand by being nice to the parser). 
+
+We don't have computation models for how to cost all these pieces against each other, so for now it's hard to verify these things. 
+
+While here I'm following a high level probabilistic approach, it has a lot of similarities to the constraint based approaches in considering trade-offs between a number of soft constraints. 
+
+Don't distinguish hard lines between "normal" and abnormal situations -- communicative and linguistic skills can transfer to new contexts and depending on the contexts, relative weighting of different factors will be different, but those are just the extremes of the same distribution we are constantly in. 
+
+% here % 
+
+\subsection{Blither}
 
 some of the time, people will not fully map everything and will instead need to rely on short-circuits and proxies 
 
-the question is when these times are and what happens in "normal" situations in the middle ... 
+
 
 
 One key distinction that doesn't get explicitly highlighted much (but is brought up in some recent work, such as \cite{leung2023}) is that the process of `first contact' -- establishing initial reference -- is at least somewhat separable from the repeated reference / reduction phenomenon. They're probably not totally separate as the same systems will need to work for both, but there are probably peculiarities to the reduction part. 
@@ -661,7 +675,7 @@ general meta-theory: when something is a new area, easy to make over-simplifiyin
 useful sketch of some options versus reality / full messy space of options
 
 Stronger if you have gradients (ideal if you have math model and can do something quantitative)
-\subsection{Meta-commentary}
+
 \subsection{ Levels of analysis and implicit versus explicit knowledge}
 many theories are loose on what level of analysis they are addressing things out, and if there posit representations whether they mean that those are actually in the mind somewhere or whether it's a model that might not be actually possesed by people in that form. Also how much there may be a layer of approximation over everything. 
 
