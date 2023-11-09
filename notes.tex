@@ -170,10 +170,21 @@ Efficient language use isn't just an efficient code
 * functionalism / Hawkins1995
 * also resistance to noise 
 
+An additional wrinkle is time scale: giving a name and description to an object may be inefficient from the goal of a one-shot reference, but efficient if the object will be referred to multiple times. If many objects are referred to repeatedly, caching this into a heuristic that names are good may make sense, and thus an efficient production system might produce a description plus name even for a one-shot object because these slight inefficiencies are worth the overall efficiency of not needing to calculate the probability a given target will be referred to again. 
+
+It's also possible that in being only approximately efficient, these are just inefficiencies that haven't been under sufficient pressure from the mechanisms behind mostly-efficient language use. 
+
 \subsection{Informativity, redundancy, and efficiency}
-* Specific application: "informativity" and over-informativity
-* useful lay concept around how much of what to say and idea that some utterances seem to have too much or too little information
-* but being able to say in the middle what is "redundant" or "over-informative" needs to be specified relative to some framework. Context \& pragmatics may make seemingly "under" informative utterances efficient (likely to succeed and quick, given salience, background, etc); and seemingly "over" informative utterances by conventional things may be pragmaticly efficient if they reduce production/comprehension/search time.
+One seeming counter-example to efficient language use is the common use of so-called ``redundant'' referring expressions. The phenomenon of interest here is when people say things like ``the blue cup'' when there is only one cup.  
+
+While ``redundant'' and ''over-informative'' are useful pre-theoretic terms, we can't judge what a minimally-adequate description is without a fully-fledged theory of semantics and pragmatics. Claims of informativity are usually made relative to a truth-value semantics that isn't considering salience or pragmatic-enhancement, rather than any empirically determined rate of correct target identification or speed. 
+
+Under a mind-to-mind view of efficiency, these ``over-informative'' utterances may be efficient if the additional early information is easier to produce or makes the search problem easier, both of which could be true if color is salient. 
+
+On the other hand, in some situations, phrases that would be considered ``under'' informative, may still be highly effective at communicating the target, because of conventionalized pragmatics. However, whether or not speakers use these pragmatically-licensed short forms may depend on how costly it is to calculate the implicatures:  \cite{baumann2014} argues that in RSA-style environments, speakers often produce ``over'' informative expressions because calculating the implicatures is costly. As long as listeners rarely delay or misinfer because of this, these longer utterances may be efficient because the reduced time to produce them may outweigh the increased articulation time. 
+
+
+In sum, determining what is an efficient usage may be difficult because it requires not just analyses the words said and their alternatives, but also production and comprehension time, which may be highly contingent on contextual factors and conversational history. 
 
 \subsection{What does efficiency have to say about reference and pragmatics?}
 
@@ -192,9 +203,10 @@ the communicative context should play a large role is determining how much signa
 
 This is not a well-defined area -- we talk about descriptions being sufficiently informative, but not overly informative, but to make those calculations, you need to have already posited full on semantics and a lack of noise in the interpretation channel. Whatever level of pragmatics you allow, then screws this because now your just barely informative are in expectation overly informative since others can be pragmatically enhanced. Better to explain all of this in terms of RSA where you can deal with it flexibly and not need to specify what the baseline is. 
 
-\cite{baumann2014} argues that in RSA-style environments, speakers often produce "over" informative expressions, and they make the claim that it's because calculating the implicatures is costly.  do listeners ever misinfer b/c of overinformativeness? what's the downside of being "over" informative except from an efficiency stand-point? how do we even define "over" specification, since this is always going to be in regard to a level of inference and a level of probabilistic certainty that we're okay with. 
+consider making fun of grice somewhere
 
 \cite{bergen} on specificity implicatures will also raise questions here, since do you calculate informativeness before or after the implicature? 
+
 
 From efficiency if production time speed if a big factor, then it may be overall efficient. 
 
@@ -524,63 +536,66 @@ conversational pacts are not just partner specific they are context specific \ci
 - people taking into account current circumstances including prior responses ; in general tends to be some sort of monitoring if interactions for various signals when engaged in interactions / joint activities.
 
 
+\section{Probabilistic models of pragmatics}
+
+Another vein of research for thinking about communicative utterances is modeling interlocuters as (approximately) rational agents who recursively model one another. There are multiple versions of probabilistic models in this stream, but I focus here on the Rational Speech Acts framework and family of models. This set of models has been used to model some instances of ad hoc pragmatics as well as conventionalized pragmatic implicatures. 
+
+\subsection{Basic framework of RSA}
+
+RSA is an information-theoretic, computational framework for making quantitative predictions about pragmatic inferences in context \cite{goodman2016, frank2012a}. The basic idea of the Rational Speech Acts (RSA) family of models is to picture two interlocuters recursively reasoning about how the other would produce or interpret utterances, grounding out in a listener (or speaker) who behaves in a pre-specified ``literal'' way. This framework is usually run with one or two levels of recursion, where it tends to produce a reasonable fit to human experimental judgments, consistent with work finding that most people reason pragmatically at a low recursion depth CITE DEGEN. 
+
+The basic idea of RSA is to specify some level-0 listener whose lexicon is specified in some way. From there, the speaker reasons about the listeners lexicon, and samples an utterance that softmaxes their utility function. Then, a pragmatic listener reasons about how to interpret an utterance by softmaxing a meaning given their model of the speaker and literal listener. This is a fairly basic framework, but many of the chunks here can get quite complicated when necessary. 
+
+Different models in the RSA tradition incorporate different sets of components in the models. Models generally include a utility or informativity term that relates to how well an utterance resolves uncertainty in favor of the target referent.  It is common to also include factors such as the prior likelihood of referring to each target (salience prior) and some cost on utterances where longer or more complex utterances are penalized \cite{goodman2016}. Some models also go beyond informativity, incorporating options to infer the question-under-discussion CITATION or for speakers to balance informativity with politeness.
+
+In some sense, a fully RSA model would incorporate all of these components and also infer their weights. However, for tractability, usually only those features that are considered relevant to the domain of interest are included.
+ 
+Because of the flexible framework, it is possible to model many sources and levels of uncertainty, and then integrate out that uncertainty to make predictions, but also update on the sources of uncertainty in response to input. 
+
+\subsection{What about semantics?}
+
+Perhaps the largest challenge to RSA models is the question of how to ground out the models in a ``literal'' listener or speaker. For the most part, RSA is tested in toy domains where the set of possible utterances are small and it is possible to enumerate a set of meanings.
+
+One option is truth value lexical semantics where each object-label pair is either true or false CITE, which works well for objects that straightforwardly either have or do not have certain properties (color, shape). This ceases to work as targets decrease in nameability or if prototypicality effects occur. 
+
+An alternative is some sort of soft or continuous semantics where each object-label pair has a value between 0 and 1 \cite{degen20200406}. These semantics can be used to indicate that some properties are stronger than others, by using higher values for color than for size. This soft semantics that reflects informativity is used to achieve a computational model of ``redundant'' referring expressions. %TODO look up exactly how this worked
+However, soft semantics still run into the issue of compositionality: either every possible utterance must independently receive a degree of match with every possible object in the prior, or the prior needs to include rules for how to determine the match of a whole utterance on the basis of the match with each component. 
+In a later experiment of \cite{degen20200406}, typicality effects made compositional semantics not work, but the utterance space was small enough that each utterance could be treated individually. 
+
+Treating utterances holistically sidesteps the compositionality concern, but this is not scaleable and conflicts with incremental RSA. Incrementality-based accounts are necessary to explain informativity-based ordering preferences CITE. 
+
+To account for more real-world situations, we would like to be able to handle both a large range of possible utterances and situations in which the ordering of information matters. One strategy in communication might be to keep describing an object until the listener chooses an object, but this would require an incremental system that iterates the process each time chunk.
+
+One could see this as saying that we first need to solve semantics in order to do pragmatics. I think a more productive framing is to try to figure out what a model of semantics is that could support RSA models of the pragmatic language use that we observe used behaviorally. 
 
 
+Some big questions are how to scale this up to accommodate a larger space of possible utterances and meanings, which crucially requires figuring out how to do compositionality. What happens when targets do not have straightforward sets of properties? 
 
+%TODO goodman2013 also for what the right literal meaning is 
 
+%TODO re-look at bergen for what semantics is required to get costly utterance -- rare meaning correspondence 
 
-\section{RSA / probabilistic models }
-
-Approach: of specifying everything out in a model (generally having to simplify) 
-* explicitly a high level model, agnostic to what parts may be cached or conventionalized, often needs to be used in toy situations where all parameters and options can be mapped
-* what's the approach \& options
-
-\subsection{brief summary of RSA}
-
-
-\subsection{what about semantics?}
+ In order to extend this model towards more realistic and open-ended scenarios, an important question to grapple with is what form of meaning (even at a computational level) will appropriately support pragmatic reasoning. 
 
 \subsection{attempts to grow it bigger}
 
+
+For now, some of how RSA family models can explain different phenomena is that the literal semantics are customized to each situation. In thinking about what a more general RSA system could look like, this is the point of incompatibility that needs to be solved. 
+
+Some form of soft semantics is likely to be needed to handle metaphoric descriptions of hard to describe images (such as tangrams). It's also unclear how to scale up 
+%TODO
+% idea of soft semantics is necessary for dealing with tangrams where truth value semantics is unlikely to cut it -- then the specificity and truthiness of the description bits is what's competing 
+%TODO will need to read more about what the scaling up attempts have been
+
+\subsection{dump}
 \subsection{RSA blurgh}
 
 \cite{murthy2022} on color chip associations with words. This uses a strongly uncertain framing where we have priors over word-color associations. How does this map up to words where there's more structure to the prior in some complicated way. Also evidence that one can learn a lot from feedback, including things that may have had really shallow priors. 
 
 Connection to CG: but how deep does recursion go? Could look at the Franke \& Degen for some of this, but generally seems to be only a couple stages on this recursion, so maybe recursion for CG is also only a couple stages -- not sure how strong the connection is here
-\cite{bergen} on how to get matching between costly utterances and rare meanings which is needed for efficiency
-
-One school of thought around pragmatics (both the ad hoc pragmatics that takes place constantly and conventionalized pragmatic implicatures) is that they can be modeled as a rational recursive mental modeling of the interlocuters state. There are multiple probabilistic models in this stream (CITATIONS), but I focus here on the Rational Speech Acts model. 
-
-Overall, RSA is a computational framework for making quantitative predictions about pragmatic behavior \cite{goodman2016}. The basic idea of the Rational Speech Acts (RSA) family of models is to picture the two interlocuters recursively reasoning about how the other would produce or interpret utterances, grounding out in a listener (or speaker) who behaves in a pre-specified "literal" way. This framework is usually run with one or two levels of recursion, where it tends to produce a reasonable fit to human experimental judgments. 
-
-Different instances of RSA incorporate different sets of components in the models. It is common to consider factors such as the prior likelihood of referring to each object (salience prior) and some cost on utterances where longer or more complex utterances are most costly to produce. 
-
-\cite{frank2012a} This is an information theoretic approach, with the goal as to how to quantitatively predict pragmatic inference in context (that's the big goal). Question here is how to do this with less clear referents like abstract things. Features that matter are the contextual salience (although this is sometimes ignored) and a surprisal-based informativeness measure (how much the utterance reduces uncertainty) which could either be empirically or semantic-system calculated. Lots of work is about how to scale this system up to things that eventually come into contact with interesting interactions. Although also may be able to account for some conventionalized pragmatics too. 
-
-\cite{goodman2016} RSA is a computational framework for making quantitative predictions about pragmatic behavior. Variations on RSA pull out different features could be at play -- in some sense a full model would have to include all of these, but many are particularly relevant in different situations and so get modeled in those cases. 
-One approach to explaining both some conventionalized pragmatic implicatures and some features of people's pragmatic language is the Rational Speech Acts approach of modeling pragmatic usage as a speaker and listener recursively reasoning about the other. Variations of the basic model have provided computational model explanations of a number of phenomena (CITATION). 
-
-The basic idea of RSA is to specify some level-0 listener whose lexicon is specified in some way. From there, the speaker reasons about the listeners lexicon, and samples an utterance that softmaxes their utility function. Then, a pragmatic listener reasons about how to interpret an utterance by softmaxing a meaning given their model of the speaker and literal listener. This is a fairly basic framework, but many of the chunks here can get quite complicated when necessary. 
-
-While it is possible to run the recursion farther, in general RSA generates reasonable fit to human behavior with level 1 or level 2 listeners or speakers. (TODO CITE DEGEN). 
-
-Because it's already using a probabilistic framework, it's possible to model uncertainty at various levels and then integrate over the uncertainty but also make updates to it on the basis of more information. 
-
-There's a lot of flexibility, but this means that choosing the right semantics to ground out the literal listener with is important. This poses a challenge, and I suggest that in order to extend this model towards more realistic and open-ended scenarios, an important question to grapple with is what form of meaning (even at a computational level) will appropriately support pragmatic reasoning. 
-
-Some models have used truth value lexical semantics (CITE), but this poses problems as the targets decrease in nameability. Some sort of soft or continuous semantics can be used (CITE) which ameliorates some problems. However, it still raises the question of compositionality. CITE sidesteps this issue by using a closed class of possible utterances and measuring their semantic fits empirically, but treating things as chunks is not scalable to open-class utterances. It also conflicts with the desires for an incremental RSA that could account for informativity-based ordering preferences or manage language use where interruption is possible. 
-
-This could be read as saying that we need to solve semantics in order to have pragmatics, but I'd instead see that a productive way of thinking about what a good semantics system could be is to think what could support the pragmatic language use we see as send through as RSA-type framework. (This still leaves off all the sampling and processing constraints that eventually will also need to be considered.) 
-
 One advantage of RSA and other probabilistic models is that they can make graded quantitative predictions, accommodate variability, and weigh trade-offs between different perceived pressures on communication (such as when different Gricean maxims come into conflict). These advantages all come from having to fully specify the components of the model. 
 
 This probabilistic approach can be seen as a quantitative formalism similar to other graded approaches such as the verbal theory of constraint-based. However, RSA is explicitly a computational-level model that is sometimes agnostic to whether the calculations are happening in the conversation or are a cached process that has been crystallized into conventional usage. 
-
-** Intro to RSA ** 
-
-
-
-** Advantages to a probabilistic approach
 
 One point of distinction for a lot of theories is how they handle uncertainty on the part of interlocuters. Many do not and instead contort themselves to accomodate the fact that people make (in these models) assumptions about what others know based on appearance/etc (assuming member of speech community, assuming general knowledge ). But then they also have to specify accomodation and repair mechanisms to deal with when things that were treated as being commonly known where not known by the interlocuter. Especially in reference to hard to describe objects, people may not always describe things in ways that they "know" the other person will understand, which is harder to explain under these stricter models. 
 
@@ -588,49 +603,17 @@ Probabilistic models allow for uncertainty over what other people know, and what
 
 Gricean maxims provide some descriptive coverage, but there's often (perhaps always) conflict between them and none of them are well enough defined to specify what counts as "relevant" etc. 
 
-** One big question is what sorts of semantics are needed to support the model working. 
+This still leaves off sampling and processing constraints that would eventually need to be incorporated.
 
-One central issue that comes up when discussing linguistic communication is the semantics-pragmatics divide (if you believe in that) or how word meanings are represented. Words certainly have conventionalized meanings (that's how we can talk to people who we haven't talked to before), but there's questions about what the representations are and separately, what an appropriate way to model them is. 
-
-Is literal semantics a useful model? Clearly lots of formal semantics isn't psychologically plausible, but some of the approaches could be useful simplifications for plugging in to RSA. What literal semantics will support RSA to explain different things? Like, what if we treated semantics as another Marr Level 1 component of RSA. 
-
-
-** Some of the uses have been to explain conventional pragmatic implicatures. 
-
-\cite{bergen} is mostly trying to explain a very particular set of implicatures raises questions about what types of semantics are a reasonable substrate for RSA. (see notes for details about options for semantics) 
-
-Things that at one point may have been pragmatics become entrenched by usage (possibly within partner specific ad hoc interactions, but certainly over time for a community) 
-
-** Some have been to explain reference expressions. 
-
-\cite{degen20200406} in choosing a referring expression, some trade offs between cost of utterance and informativeness (also many, many things no where near the frontier, just for the record) 
-
-\cite{degen20200406} uses continuous/soft semantics to explain how redundancy can be useful
-
-could look at \cite{degen20200406} as asking the question: what's a system of semantics and RSA pragmatics that would generate and explain these observed phenomena (what are the constraints or processes that could lead to this output) 
-
-idea of soft semantics is necessary for dealing with tangrams where truth value semantics is unlikely to cut it -- then the specificity and truthiness of the description bits is what's competing 
 
 ** All raise questions about how to account for all the sources of variability. 
 
 Some key questions here are: what are the alternatives to an utterances? What the literal semantics being used? What's the belief/likelihood representations? 
 
 
-there's a conflict between compositionality (which \cite{degen20200406} get around by using whole phrase semantics) and incremental RSA / ordering constraints for cross-linguistic --> points to a tension on how to do both
-
-Again a big question is how to ground the semantics of the literal listener -- what usage is based (and what is pragmatic enhancement), and what sort of semantics even works. Truth value doesn't work all the time, how to introduce uncertainty there? 
-
-Some RSA models incorporate cost terms -- abstraction of various things, which is probably related to efficiency pressures (or is modelling the causes of efficiency pressure) 
-
 Questions of how to model uncertainty over word meanings and other parts of interlocuter states (what do they know if this is not mutual knowledge) or their goals
 
-\cite{goodman2013} this paper again raises the question of what's the right literal meaning to use  -- is it some sort of context free expectation? 
-
 How much do extra-linguistic, domain general factors affect pragmatics? Priors? Seems like there's a fine grained interaction between knowledge and implicature (not really sure what I meant here)
-
-At a broad-strokes computational level, abstracting out language-specific constraints and the details of production and processing, I think that RSA-style models are promising. These theories allow for probabilistic integration of the many linguistic and non-linguistic sources of information that are at play in conversation. It can accommodate different goal states as well as varying levels of certainty about anything. Many versions have successfully matched behavior in limited domains, but there are many factors that are in play in some situations and ideally they would exist in the background of models the rest of the time. Computational tractability becomes a problem if there are actually included, but it most cases, it seems like considering these other factors and then neglecting them is reasonable. 
-
-Some particular challenges for using RSA in practice are the various ways that communication is open ended: it has open vocabulary, open issues of compositionality, open number of turns, and (with spoken language) is highly incremental with options to take actions or interrupt mid sentence. As it becomes more open-ended, issues of how to consider alternatives and the psychological implausibility of actually considering all of them may come into play. A resource-rational approach that uses sampling instead of exhaustivity may provide a way of pushing this computational theory down into being slightly more concrete. 
 
 
 \section{Psycholinguistic considerations}
@@ -737,6 +720,10 @@ For comprehension at least, there's a history of parsers and so some models (TOD
 
 
 \section{Useful approach: What I think is true}
+
+At a broad-strokes computational level, abstracting out language-specific constraints and the details of production and processing, I think that RSA-style models are promising. These theories allow for probabilistic integration of the many linguistic and non-linguistic sources of information that are at play in conversation. It can accommodate different goal states as well as varying levels of certainty about anything. Many versions have successfully matched behavior in limited domains, but there are many factors that are in play in some situations and ideally they would exist in the background of models the rest of the time. Computational tractability becomes a problem if there are actually included, but it most cases, it seems like considering these other factors and then neglecting them is reasonable. 
+
+Some particular challenges for using RSA in practice are the various ways that communication is open ended: it has open vocabulary, open issues of compositionality, open number of turns, and (with spoken language) is highly incremental with options to take actions or interrupt mid sentence. As it becomes more open-ended, issues of how to consider alternatives and the psychological implausibility of actually considering all of them may come into play. A resource-rational approach that uses sampling instead of exhaustivity may provide a way of pushing this computational theory down into being slightly more concrete. 
 
 Perspective: Theories should be clear about what level of analysis and scope of explanation they are trying to provide. Theories that are compatible with other theories operating at different levels of analysis and that are compatible with the theories and evidence from adjacent fields are preferable. With that position, here's my distillation of what theories are most promising to me. 
 
