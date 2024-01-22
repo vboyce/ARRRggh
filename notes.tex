@@ -10,154 +10,6 @@
 
 
 
-\section{Probabilistic models of pragmatics}
-%STATUS: also pretty solid, needs some more lit search
-
-Another vein of research for thinking about communicative utterances is modeling interlocuters as (approximately) rational agents who recursively model one another. There are multiple versions of probabilistic models in this stream, but I focus here on the Rational Speech Acts framework and family of models. This set of models has been used to model some instances of ad hoc pragmatics as well as conventionalized pragmatic implicatures. 
-
-\subsection{Basic framework of RSA}
-
-RSA is an information-theoretic, computational framework for making quantitative predictions about pragmatic inferences in context \cite{goodman2016, frank2012a}. The basic idea of the Rational Speech Acts (RSA) family of models is to picture two interlocuters recursively reasoning about how the other would produce or interpret utterances, grounding out in a listener (or speaker) who behaves in a pre-specified ``literal'' way. This framework is usually run with one or two levels of recursion, where it tends to produce a reasonable fit to human experimental judgments, consistent with work finding that most people reason pragmatically at a low recursion depth CITE DEGEN. 
-
-The basic idea of RSA is to specify some level-0 listener whose lexicon is specified in some way. From there, the speaker reasons about the listeners lexicon, and samples an utterance that softmaxes their utility function. Then, a pragmatic listener reasons about how to interpret an utterance by softmaxing a meaning given their model of the speaker and literal listener. This is a fairly basic framework, but many of the chunks here can get quite complicated when necessary. 
-
-Different models in the RSA tradition incorporate different sets of components in the models. Models generally include a utility or informativity term that relates to how well an utterance resolves uncertainty in favor of the target referent.  It is common to also include factors such as the prior likelihood of referring to each target (salience prior) and some cost on utterances where longer or more complex utterances are penalized \cite{goodman2016}. Some models also go beyond informativity, incorporating options to infer the question-under-discussion CITATION or for speakers to balance informativity with politeness.
-
-In some sense, a fully RSA model would incorporate all of these components and also infer their weights. However, for tractability, usually only those features that are considered relevant to the domain of interest are included.
-
-Because of the flexible framework, it is possible to model many sources and levels of uncertainty, and then integrate out that uncertainty to make predictions, but also update on the sources of uncertainty in response to input. 
-
-\subsection{advantages of a computational framework}
-
-Verbal theories seem to suffer either from being too dogmatic and thus lack explanatory power when their predictions aren't met, or if they do consider trade-offs between multiple influences, they don't make risk predictions, and then lack explanatory power because they could have just as well explained many other things. 
-
-Computational frameworks such as RSA provide a way forward because trade-offs can be factored together and weighed in the models. One could imagine trying to write models for constraint theory that specify all the constraints and try to determine their relative weights. Actually writing these models may be impractical, but it at least provides a mental framework for thinking about relative weights for different trade-offs, and whether the same set of weights could apply cross-situationally, or whether there would need to be hyperparameters. 
-
-Similarly, while Gricean maxims are a useful descriptive starting point, they're underspecified and usually in conflict with one another %TODO cite grice 
-Some of the terms in RSA models could be seen as analogs that weight information against utterance cost %TODO what even are the maxims
-
-One additional benefit to RSA and similar models is that it's very easy to incorporate variability and uncertainty and to output graded quantitative predictions (in theory, computational tractability may put a damper on this). 
-
-\subsection{What about semantics?}
-
-Perhaps the largest challenge to RSA models is the question of how to ground out the models in a ``literal'' listener or speaker. For the most part, RSA is tested in toy domains where the set of possible utterances are small and it is possible to enumerate a set of meanings.
-
-One option is truth value lexical semantics where each object-label pair is either true or false CITE, which works well for objects that straightforwardly either have or do not have certain properties (color, shape). This ceases to work as targets decrease in nameability or if prototypicality effects occur. 
-
-An alternative is some sort of soft or continuous semantics where each object-label pair has a value between 0 and 1 \cite{degen20200406}. These semantics can be used to indicate that some properties are stronger than others, by using higher values for color than for size. This soft semantics that reflects informativity is used to achieve a computational model of ``redundant'' referring expressions. %TODO look up exactly how this worked
-However, soft semantics still run into the issue of compositionality: either every possible utterance must independently receive a degree of match with every possible object in the prior, or the prior needs to include rules for how to determine the match of a whole utterance on the basis of the match with each component. 
-In a later experiment of \cite{degen20200406}, typicality effects made compositional semantics not work, but the utterance space was small enough that each utterance could be treated individually. 
-
-Treating utterances holistically sidesteps the compositionality concern, but this is not scaleable and conflicts with incremental RSA. Incrementality-based accounts are necessary to explain informativity-based ordering preferences CITE. 
-
-To account for more real-world situations, we would like to be able to handle both a large range of possible utterances and situations in which the ordering of information matters. One strategy in communication might be to keep describing an object until the listener chooses an object, but this would require an incremental system that iterates the process each time chunk.
-
-One could see this as saying that we first need to solve semantics in order to do pragmatics. I think a more productive framing is to try to figure out what a model of semantics is that could support RSA models of the pragmatic language use that we observe used behaviorally. 
-
-
-Some big questions are how to scale this up to accommodate a larger space of possible utterances and meanings, which crucially requires figuring out how to do compositionality. What happens when targets do not have straightforward sets of properties? 
-
-%TODO goodman2013 also for what the right literal meaning is 
-
-%TODO re-look at bergen for what semantics is required to get costly utterance -- rare meaning correspondence 
-
-In order to extend this model towards more realistic and open-ended scenarios, an important question to grapple with is what form of meaning (even at a computational level) will appropriately support pragmatic reasoning. 
-
-
-
-
-
-\subsection{attempts to grow it bigger}
-
-
-For now, some of how RSA family models can explain different phenomena is that the literal semantics are customized to each situation. In thinking about what a more general RSA system could look like, this is the point of incompatibility that needs to be solved. 
-
-Some form of soft semantics is likely to be needed to handle metaphoric descriptions of hard to describe images (such as tangrams). It's also unclear how to scale up 
-%TODO
-% idea of soft semantics is necessary for dealing with tangrams where truth value semantics is unlikely to cut it -- then the specificity and truthiness of the description bits is what's competing 
-%TODO will need to read more about what the scaling up attempts have been
-
-One attempt to more directly connect RSA models with convention formation is  CHAI \cite{hawkins2021}. CHAI is a framework that tries to bridge the levels of conventions from partners to networks and societies. 
-
-
-%how to do alternatives
-
-%computational intractability
-
-
-\section{Psycholinguistic considerations}
-
-\subsection{Case of disagreement: what influences the time course of production / comprehension }
-
-Many of the theories have implicit assumptions about what the timeline for production or processing of language looks like. These theories vary in their testability, but it is worth thinking about what assumptions they make and how that fits or does not fit with our current understanding of language production and processing. 
-
-This has not stopped people from making these claims. One argument is whether initial utterance planning is ego-centric or whether interlocuter's perspectives and knowledge states are available for initial language planning. TODO cite Horton \& Keysar attempt to test this, but acknowledge that monitoring and fixing of the utterance, including pre-initiation of the utterance, may take into account the listener's perspective. %TODO say more about the egocentrism thing
-
-Parallel to the egocentrism debate in production is an egocentrism debate in comprehension. Basically, the question is whether an intial stage of comprehension is egocentric, that is, not taking into account non-linguistic input about other's knowledge state or intent. This was primarily studied using eye-tracking as a proxy for interpretation, which is problematic as we don't understand fully what eye-movements mean TODO CITE JUDITH. 
-
-It is unclear to me what an egocentric perspective would even really mean, as language primarily comes from individual other speakers, so receiving input from a `generic' speaker is not the norm. From a developmental perspective, children figure this out %TODO cite
-
-In any case, \cite{keysar2000} argues for an initial egocentric perspective on the basis that people often intially look at objects that are good matches to a description that are not mutually visible with their interlocuter. They seem to be assuming that if people weren't egocentric, people should have very strong priors that interlocuters only refer to things that are mutually know, which is clearly false (why ask where something is if you can see it?). 
-
-The counterpoint presented by \cite{hanna2003} is a constraint-based theory where many factors can play into comprehension, including working memory limitations. 
-
-Underneath the poor experiments and strong positions are a number of interesting and complicated questions. It seems clear that many factors can sway comprehension, including both "top-down" and "bottom-up" processes, and understanding the relative mix of these factors could be very interesting. However, it's a difficult empirical matter to disentangle all these factors and a number of nuisance experiment parameters especially when the measures we have are far removed from the constructs of interest. 
-
-
-
-\subsection{How does production even work}
-* what even is a model of production that we can work with / how do search problems and other ~algorithmic constraints constrain higher-level theory
-
-It's easy to get evidence of what utterances people produce under various circumstances, but much harder to figure out how those utterances were planned. As a result, there are many vague models of how language is produced and flimsy linking assumptions about how these models predict speakers will behave. 
-
-One assumption is that introducing time pressure by telling someone to respond faster will change the production process in a way that limits later steps more than earlier steps. Clearly, time pressure and other resource constraints do affect production as can be seen by differential responses in constrained versus less constrained circumstances. However, given that we do not have a good production model, claims about the mechanism by which time pressure and other constraints influence production are weak.
-
-Production processes can cause deviations from the ideal utterance because of the need to generate potential utterances, including search problems related to retrieving the necessary words in time to construct the utterance. As CITE LEUNG points out, when referring to something, we need to do at least three things as a speaker: generate any description at all, have a description that is good enough for the target, and have a description that doesn't overly match competitors. RSA discusses how to choose between utterances, but in some cases generating any description or a good enough description is non-trivial, and not well studied. How do people produce candidate descriptions in the first place? 
-
-
-
-These implementation constraints are where the bounded part of bounded rationality comes in -- we expect RSA-style to be a good high level model, but it's not an implementation and is agnostic about what parts are cached and at what level things are cached or short-cutted. 
-
-Everything is probably more continuous than these things posit. It's a probabilistic world of bounded rationality and heuristics to fill in gaps. 
-
-The big take-away here is that we can't fully deal with these theories without testable computational models of production. %TODO whats SOTA on production modelling
-
-There's interplay between production, comprehension, and what the typology of the language is, that constrain the options for a bounded rational approach like RSA. \cite{macdonald2013} provides a functionalist account claiming that utterance planning is difficult, so speakers have biases in their production. These biases are easy first, plan reuse, and reduce interference. Taking into account both word-level and context-dependent factors, easy first seems to accord with memory retrieval theories. %TODO say more about other parts 
-Under this model, these speaker patterns drive typology and the statistics of language, so comprehenders rely on these statistics of input to make predictions and do pragmatic interpretation. 
-
-\cite{heller2012} disagrees and says that speakers have a harder time than listeners b/c they need to model the listener (at least approximately) %TODO re-read heller
-
-One issue with any `which came first and is the driver' arguments is that language is a cultural artifact and doesn't ground out in something external. There isn't an external set of statistics for the language system to be adapted to -- the statistics are also generated by the language system. Thus, as an empirical matter it is difficult to figure out which of comprehension and production is `driving' statistics, as both are under pressure to be calibrated to the another. This calibration is similar to the difficulty determining the division of labor in audience design, just on a different granularity of analysis. 
-
-To avoid circularity, \cite{macdonald2013} claims that some of the production pressures are related to specific mechanistic aspects of memory and domanin general features such as saliency. %TODO reread macdonald and check 
-
-One way to disentangle may be to look at situations where what is easy to produce and what is easy to comprehend are different (CITE Ferreira commentary on \cite{pickering2004}). 
-
-\subsection{Interim summary}
-
-Going from the computational level of bounded rationality to the implementational concerns of psycholinguistics allows for the exploration of what the bounds and heuristics may be. Humans have huge amounts of linguistic experience, which could lead to a lot of cached heuristics. In many cases, these heuristics may be incredibly useful for being able to communicate rapidly, but they may also be suboptimal in some cases. 
-
-Production and comprehension are the processes that pragmatics and also efficiency in language flow through. However, it is difficult to know what mechanisms are going on when the main sources of information are what happens under load and what the time course is. 
-
-For comprehension at least, there's a history of parsers and so some models (TODO CITE), but what is there for production. 
-
-%TODO at risk of scope creep is there a review article on comprehension or production 
-
-
-
-
-%\cite{hanna2003} Looking at the time course of using the speaker's context in processing. Bug questions around whether people are initially egocentric in their interpretations. Makes some weird assumptions about what's required to take other's perspective, on a more mechanistic level, without paying attention to the possibility for some cached heuristics. 
-%
-%What would an egocentric perspective really be? Language only exists in relation to others (mostly), so how do we think about word meanings in the absence of considering the speaker (clearly there is some way of doing this, "generic speaker", whatever, but I don't know if it's well understood) there's probably also an interesting developmental component -- what's the interplay between language development and ToM development? 
-%
-%
-%For the whole egocentricity timeline stuff, there's a big question of what things factor in how much when and how much that gets pushed around by other constraints such as working memory etc. There's multiple dimensions here (not to mention the many nuisance ones), and we don't have many points of experimental evidence. 
-%
-%\cite{keysar2000} makes assumptions that we know a lot more about processing and how to interpret eye-movements than we in fact do. Seems to assume that people should have absolute assumptions that what is communicated about will be mutually know via being in mutual view. This is dumb and in real life is never going to be that strict -- it is possible for people to refer to things that are out of their sight at the moment and even when you don't know that the know about it. That needs to be within the considered distribution. Seems to be that the questions are about the relative mix of top-down and bottom-up processes when searching for a visual referent. 
-%
-
-
-
 
 
 
@@ -168,13 +20,7 @@ At a broad-strokes computational level, abstracting out language-specific constr
 
 % Many versions have successfully matched behavior in limited domains, but there are many factors that are in play in some situations and ideally they would exist in the background of models the rest of the time. Computational tractability becomes a problem if there are actually included, but it most cases, it seems like considering these other factors and then neglecting them is reasonable. 
 
-Some particular challenges for using RSA in practice are the various ways that communication is open ended: it has open vocabulary, open issues of compositionality, open number of turns, and (with spoken language) is highly incremental with options to take actions or interrupt mid sentence. As it becomes more open-ended, issues of how to consider alternatives and the psychological implausibility of actually considering all of them may come into play. A resource-rational approach that uses sampling instead of exhaustivity may provide a way of pushing this computational theory down into being slightly more concrete. 
 
-In terms of theories of interactions, I favor partial-pooling models that treat people as keeping some track of the individuals and situations they interact in while also showing some transfer-learning and generalization across people and contexts. How these two factors balance against each other is an interesting empirical question. 
-
-I believe that people are fairly sophisticated at modeling the knowledge states of their interlocuters, probably through some combination of explicitly modelling knowledge the use of good heuristics. Many of these beliefs may be graded, and many be on the basis of a heirarchical framework of what knowledge tends to be known by what categories of people.  Cultural norms around givenness are something that must be learned jointly with other norms about symbolic communication (primarily language). 
-
-Pushing down levels of analysis, resource-rational models should embody some of the constraints from feasible memory retrieval, production, and processing. Some of these will be from domain general processes (memory retrieval) and others may be about the language system in particular. 
 
 
 Another source of constraints for implementational levels is how the language production and processing system works -- what possible utterances are and how they are produced and how things can be structured are constrained by language. 
@@ -324,10 +170,7 @@ Other evidence from language use and perception/ categorization boundaries may a
 
 \section{to incorporate}
 
-\cite{hawkins2020b} How do you break symmetries in initial descriptions: there's prior variability across speaker preferences (they may each have a preferred label, but be unsure if others will accept it) and/or speakers may also not have labels and need to do some sampling. This doesn't account for production time course factors. 
 
-this is a domain general model about abstracting over instances and forming conventions -- it is not particular to language, although peculiarities of language will also occur (and may have more levels to conventionalize on) 
-\cite{hawkins2021} says there are 3 core cognitive abilities: the ability to represent that there is variability in other's lexicons; to coordinate via online learning; and to generalize across interactions ("partial pooling" model where updates both to partner and population) 
 
 
 
@@ -335,7 +178,7 @@ need some sort of structured heirarchical representation of word meaning (on the
 
 what's the ability to compound utterances? how do we do informativity measures? and how does this play out with more real world stuff? there's a toy model that I think is broadly correct, but you also start running into syntactic expectations for natural language which in the individual instance run counter to pure efficiency and informativity (what if there isn't a noun) 
 
-\cite{hawkins2021} separating the inference problem about what the other person's lexicon is (which is how they will interpret things in the moment, b/c you may have temporarily changed their lexicon) with decisions about what to say given that 
+
 
 
 points to an open question about what realistic priors would look like here
