@@ -72,19 +72,24 @@ Multi-way conversations complicate the verbal theories of audience design and pa
 One expects that the ability to track partner's knowledge states would eventually degrade as groups got bigger, but it's an empirical matter how large groups have to be before speakers weren't able to track individual performance and knowledge. There is neither sufficient data nor theories on how utterance design changes with group size. 
 
 
-\subsection{"convention" formation}
-Another key observation from repeated reference games is that partners form shared conventions about how to refer to initially-ambiguous targets. One observation is that conventions seem to be partner and context specific: changes in the speaker, audience members, or changes in the context can all license a new description \cite{metzing2003a, ibarra2016, yoon2014}.
+\subsection{Convention formation}
+Over repetitions with the same partner, dyads in repeated reference games tend to form shared ``conventions'' about how to refer the the initially ambiguous targets. These conventions tend to be partner- and context-specific: changes in the speaker, audience members, or changes in the context can all license the use of a new description \cite{metzing2003a, ibarra2016, yoon2014}.
 
-The idea of convention formation is ambiguous between different levels of specificity: it could be a pact to refer to a figure as ``ballerina''; it could be thinking of the figure as a ballet dancer with a tutu (manifesting in descriptions that may not overlap lexically, such as ``ballerina'' and ``dancing in a tutu''); or it could be a general principle to describe figures in terms of humans in different postures. 
-\cite{horton2002a} distinguishes between ``lexical entrainment'' when the same words are reused, and ``conceptual similarity'' when is a a broader similarity that does not repeat the same words. 
+The shared description is also referred to a ``conversational pact'' (CITATION), the word ``pact'' implies intentionality, but I don't think that's really discussed. (TODO CONFIRM)
 
-Another point of ambiguity is how intentional or binding this process is; the resulting short-form nicknames are sometimes called ``conversational pacts'' CITE. 
+What exactly does convention formation refer to? There is ambiguity about what level of specificity convention formation or conceptual pacts refer to. 
+It could be on the lexical level, such as calling a figure ``ballerina''. It could be conceptualizing the figure as a ballet dancer with a tutu (manifesting in descriptions with semantic association, but not lexical overlap, such as ``ballerina'' and ``dancing in a tutu''). It could also be a general paradigm for how to describe figures, such as in terms as humans in different postures.  \cite{horton2002a} distinguishes between ``lexical entrainment'' when the same words are reused, and ``conceptual similarity'' when is a a broader similarity that does not repeat the same words. These levels often co-occur, but in order to model the phenomenon, it needs to be specified precisely, in order to be operationalized. 
 
-While the meaning of a description is not inherently related to its length; these two features tend to correlate in the empirical work around reference games, and thus ``reduction'' or the shortening of utterance is also used as a shorthand and measurement proxy for the semantic changes. It remains an empirical question whether the shortening of utterances and the convention formation are inherently coupled or merely occur together in the paradigms considered in the literature. These phenomena also co-occur and are sometimes inflated with partner-specificity, as in many paradigms, different pairs form different conventions. 
+While the meaning of a description is not inherently related to its length; these two features tend to correlate in the empirical work around reference games, and thus ``reduction'' or the shortening of utterance is also used as a shorthand and measurement proxy for the semantic changes. It remains an empirical question whether the shortening of utterances and the convention formation are inherently coupled or merely occur together in the paradigms considered in the literature. These phenomena also co-occur and are sometimes conflated with partner-specificity, as in many paradigms, different pairs form different conventions. 
 
-These are all interesting phenomena without satisfying theories. 
+This set of empirical results have been characterized in descriptive theories, but we do not have ways to predict them quantitatively (ex. with computational models), nor do we have a grasp on the necessary or sufficient conditions under which they occur to what extent. Even with a number of experiments finding these same results, there has not been a systematic investigation of how these phenomena vary across experimental space. 
 
-\cite{leung2023} points out that forming a convention can be thought of as preceding in two stages: first some referential expression must succeed in communicating the target, and only then can that expression turn into a more reduced form. Thus, there's both the question of how people initially decide what to say to communicate, and also, how people decide future utterances based on the shared history of a successful utterance. 
+What are potential explanations for why convention formation occurs?
+
+While not an explanation, \cite{leung2023} usefully points out that forming a convention can be thought of as preceding in two stages: first some referential expression must succeed in communicating the target, and only then can that expression turn into a more reduced form. Breaking the convention-formation process into these two steps may make it more tractable. 
+
+TODO YOU NEED TO DO MORE WORK WRANGLING HERE!!!!
+REREAD piantodosi2012 
 
 TODO dig into more: \cite{piantadosi2012} has me wondering whether conversational pacts are even real, or whether they are actually just contextual reduction is ambiguity and them peaking of the distributions in a slightly recursive way plus some recency effects and habit. This approach requires that speakers and listeners have similar models of language and the world at least in the relevant domain so that they can use contextual information to constrain the situation 
 
@@ -98,16 +103,12 @@ Groups can be complicated \cite{guilbeault2021} looks at how different sizes of 
 this is a domain general model about abstracting over instances and forming conventions -- it is not particular to language, although peculiarities of language will also occur (and may have more levels to conventionalize on) 
 \cite{hawkins2021} says there are 3 core cognitive abilities: the ability to represent that there is variability in other's lexicons; to coordinate via online learning; and to generalize across interactions ("partial pooling" model where updates both to partner and population) 
 
-\subsection{Takeaways:} what information a person has and what they know about their partner are factors; mentalizing approaches are better. Would want to model how interactions are updates on the knowledge. A computational level model could be agnostic to whether partner-specificity is from intentional thinking about who knows what or just associations [amnesia work has some implications here].  
+\subsection{Takeaways:} The communication and reference game literature provides descriptive theories that identify some phenomena of interest and raise questions around whether these phenomena occur intentionally or emerge as a by-product of other processes. These serve as a list of results that models could hope to explain. 
 
-have evidence of some circumstances where partner specificity occurs, but a more full characterization may be needed. as well as potentially disentangling between intentions and speaker-ease motivated. 
-
-Much of these phenomena are at the "overall" level, but could be brought down to the sequential level. 
-
-The study of reference games has uncovered interesting descriptive phenomena but does not provide algorithmic explanations or clear demarcations for when they should occur. 
+However, as the frequently ambiguous terms make clear, the descriptive work has not nailed down the phenomena to the degree of precision necessary. How do we measure these constructs across experiments? Fuller characterization of these phenomena will also require testing them in more circumstances, in order to define their extent. Alternatively, the verbal theories could be specific about the domain in which they claim to apply.  
 
 
-The mentalizing approach is more promising, although far from a formal theory. That is not to say that all tracking need be full explicit, but especially at a computational level, representations are a useful assumption, even if some might be implemented in associationist ways.  One kernel of reason is that usage increases the accessibility of a representation (\cite{macdonald1994}), or that the joint association between target, word, and interlocuter are encoded in memory. These processes are non-mentalizing operations that may lead to convergence in the use of words or constructions. A weaker (and more reasonable) interpretation is that production and comprehension share some things like the same memory and track usage statistics including is ways that are dependent on time and perhaps also activated by the context of conversational partner.  Could even be framed that expectations are shaped by the local context, including the conversation partner. 
+
 
 \section{Efficiency}
 One unifying framework gaining traction in psycholinguistics is efficiency, the idea that language and language use is under pressure to support efficient communication by maximizing the ratio of relevant information transmitted to effort. Efficiency is thought to arise from trade-offs between communicative expressivity and learnability or easy of production \cite{piantadosi2012, kirby2015}. 
