@@ -90,20 +90,6 @@ While not an explanation, \cite{leung2023} usefully points out that forming a co
 
 Another question is whether convention formation requires a "special" mechanism and theory, or whether the results can be sufficiently explained under broader theories of efficiency or communication (as discussed below). 
 
-TODO YOU NEED TO DO MORE WORK WRANGLING HERE!!!! Potentially come back or move stuff below!
-REREAD piantodosi2012 
-
-TODO dig into more: \cite{piantadosi2012} has me wondering whether conversational pacts are even real, or whether they are actually just contextual reduction is ambiguity and them peaking of the distributions in a slightly recursive way plus some recency effects and habit. This approach requires that speakers and listeners have similar models of language and the world at least in the relevant domain so that they can use contextual information to constrain the situation 
-
-\cite{piantadosi2012} in line with RSA assumes that inference is cheap and that context and speaker goals are constantly taken into account 
-
-Groups can be complicated \cite{guilbeault2021} looks at how different sizes of groups interacting over a network structure result in different category boundaries, where large groups end up more the same than small groups. Brings up questions about network structure and how we should think about networks even within groups where multiple people are interacting synchronously. Some of the other try to only allow lines between points -- either bidirectional is dialog or single-directional in monolog but there's still the development of shared stuff from the co-presence of listening to someone else even without direct interaction? 
-
-
-\cite{hawkins2020b} How do you break symmetries in initial descriptions: there's prior variability across speaker preferences (they may each have a preferred label, but be unsure if others will accept it) and/or speakers may also not have labels and need to do some sampling. This doesn't account for production time course factors. 
-
-this is a domain general model about abstracting over instances and forming conventions -- it is not particular to language, although peculiarities of language will also occur (and may have more levels to conventionalize on) 
-\cite{hawkins2021} says there are 3 core cognitive abilities: the ability to represent that there is variability in other's lexicons; to coordinate via online learning; and to generalize across interactions ("partial pooling" model where updates both to partner and population) 
 
 \subsection{Takeaways:} The communication and reference game literature provides descriptive theories that identify some phenomena of interest and raise questions around whether these phenomena occur intentionally or emerge as a by-product of other processes. These serve as a list of results that models could hope to explain. 
 
@@ -135,64 +121,42 @@ These ideas that utterances should have ``just enough'' information has inspired
 
 
 \subsection{Takeaways:}
-Efficiency is very hard to cache out in specific predictions because of the many time scales the pressures operate on: what's efficient for an utterance in isolation may not be efficient when considered over an entire life of language use. Thus, the efficiency framework is dependent on linking assumptions, and an efficiency approach could be seen as determining what link assumptions are needed to bring different phenomena under this umbrella, and then assessing the parsimony of the links.
+Efficiency is very hard to cache out in specific predictions because of the many time scales the pressures operate on: what's efficient for an utterance in isolation may not be efficient when considered over an entire life of language use. Thus, the efficiency framework is dependent on linking assumptions, and an efficiency approach could be seen as determining what link assumptions are needed to bring different phenomena under this umbrella, and then assessing the parsimony of those links.
 
-With regard to iterated reference games, I believe it is an open question whether utterances are correctly calibrated for what listener's will understand. Testing how listener's understand produced utterances and potential alternatives, along with how long they take to process, and how confident they are is a way of empirically determining if the utterances are calibrated for the listener. If they are not, this disproves some claims about what reduction and partner-specific utterances represent, but it could still be linked to efficiency either via claims that the bottleneck is on the search and production side, or that speakers are mistaken in their mental model of the listener. 
+With regard to iterated reference games, I believe it is an open question whether speakers produce utterances are correctly calibrated for what listeners will understand. Testing the interpretation of utterances and potential alternatives, along with how long they take to process, and how confident listeners are in their interpretations is a way of empirically determining if the utterances are calibrated for the listener. If utterances are not calibrated, it calls into question some claims about what reduction and partner-specific utterances represent. The miscalibration could still link to efficiency either via claims that the bottleneck is on the search and production side or that speakers are mistaken in their mental model of the listener. 
 
-YOU ARE HERE
-
-
-Might be some more theory neutral ways of trying to quantify information here in an empirically derived way. 
-
-
-
-This seems like it would lend itself to a formal model: just list all the options and their corresponding levels of effort and informativity and see where reality lands. In practice, determining the options, their levels of effort, and their levels of informativity is a big problem that seems to require solving a bunch of other open quesitons. 
-
-
-Over the short time scale of one utterance to the next, the wider meaning of language (the prior) can at least be treated as static. There are still issues where What types of communication utterances are efficient should depend significantly on the context and communication channels. In particular, if interlocuters can interrupt with questions, or cut off a speaker by selecting a referent, then incrementally efficient utterances make sense \cite{gibson2019}. In other contexts, with lower feedback, it might make sense to more evenly distribute information content or rely on surer, but longer descriptions, if there isn't an option to add elaborations contingent on interlocuter behavior.
-
-Efficiency also predicts that a changing conversational history will change the context and thus different descriptions may be efficient. This could operate both by increasing beliefs that a certain utterance will be understood (and this is contextually low ambiguity) or more generally by shaping the syntactic expectations, perhaps making it easier to produce and comprehend odder descriptions. 
 
 \section{RSA}
 
-RSA is an information-theoretic, computational framework for making quantitative predictions about pragmatic inferences in context \cite{goodman2016, frank2012a}. The basic idea of the Rational Speech Acts (RSA) family of models is to picture two interlocuters recursively reasoning about how the other would produce or interpret utterances, grounding out in a listener (or speaker) who behaves in a pre-specified ``literal'' way. Computational frameworks such as RSA provide a way to factor together different trade offs and determine their relative weights in a model. This set of models has been used to model some instances of ad hoc pragmatics as well as conventionalized pragmatic implicatures. 
-
+Rational Speech Acts (RSA) is an information-theoretic, computational framework for making quantitative predictions about pragmatic inferences in context \cite{goodman2016, frank2012a}. The basic idea of the RSA family of models is to picture two interlocuters recursively reasoning about how the other would produce or interpret utterances, grounding out in a listener (or speaker) who behaves in a pre-specified ``literal'' way. Computational frameworks such as RSA provide a way to factor together different trade offs and determine their relative weights in a model. A softmax is taken over the scores of the options to produce a distribution of interpretations and utterances, with some parameters such as the degree of optimality fit based on data.  
 This framework is usually run with one or two levels of recursion, where it tends to produce a reasonable fit to human experimental judgments, consistent with work finding that most people reason pragmatically at a low recursion depth TODO CITE FRANKE \& DEGEN. 
 
-The basic idea of RSA is to specify some level-0 listener whose lexicon is specified in some way. From there, the speaker reasons about the listeners lexicon, and samples an utterance that softmaxes their utility function. Then, a pragmatic listener reasons about how to interpret an utterance by softmaxing a meaning given their model of the speaker and literal listener. This is a fairly basic framework, but many of the chunks here can get quite complicated when necessary. 
+This set of models has been used to model some instances of ad hoc pragmatics as well as conventionalized pragmatic implicatures. CITATIONS
+Different models in the RSA tradition incorporate different sets of components in the models. Models generally include a utility or informativity term that relates to how well an utterance resolves uncertainty in favor of the target referent.  It is common to also include factors such as the prior likelihood of referring to each target (salience prior) and some cost on utterances where longer or more complex utterances are penalized \cite{goodman2016}. Some models also go beyond informativity, incorporating options to infer the question-under-discussion CITATION or for speakers to balance informativity with politeness. CITATIONS
 
-Different models in the RSA tradition incorporate different sets of components in the models. Models generally include a utility or informativity term that relates to how well an utterance resolves uncertainty in favor of the target referent.  It is common to also include factors such as the prior likelihood of referring to each target (salience prior) and some cost on utterances where longer or more complex utterances are penalized \cite{goodman2016}. Some models also go beyond informativity, incorporating options to infer the question-under-discussion CITATION or for speakers to balance informativity with politeness.
+A full RSA model would incorporate all of these components and infer their weights. However, for tractability, usually only those features that are considered relevant to the domain of interest are included. Because of the flexible framework, it is possible to model many sources and levels of uncertainty, and then integrate out that uncertainty to make predictions, but also update on the sources of uncertainty in response to input. 
 
-In some sense, a fully RSA model would incorporate all of these components and also infer their weights. However, for tractability, usually only those features that are considered relevant to the domain of interest are included.
-
-Because of the flexible framework, it is possible to model many sources and levels of uncertainty, and then integrate out that uncertainty to make predictions, but also update on the sources of uncertainty in response to input. 
-
+\subsection{the challenge of semantics}
 Perhaps the largest challenge to RSA models is the question of how to ground out the models in a ``literal'' listener or speaker. For the most part, RSA is tested in toy domains where the set of possible utterances are small and it is possible to enumerate a set of meanings. For instance, in some domains, a soft or continuous semantics is used to represent that some dimensions of meaning might be more strongly informative than others \cite{degen20200406}. This semantics supports the prediction of patterns of ``redundant'' color adjectives in referring expressions. However, soft semantics can run into conflict with compositionality: either every possible utterance must independently receive a degree of match with every possible object in the prior, or the prior needs to include rules for how to determine the match of a whole utterance on the basis of the match with each component. In a later experiment of \cite{degen20200406}, typicality effects made compositional semantics not work, but the utterance space was small enough that each utterance could be treated individually. 
 
  In less toy domains, there is not a satisfactory answer: some situations can be handled by empirically measuring likelihoods in an exhaustive ways, but this holistic approach is not compatible with incremental RSA or larger sets of utterances that require compositionality to be defined. In order to extend this model towards more realistic and open-ended scenarios, an important question to grapple with is what form of meaning (even at a computational level) will appropriately support pragmatic reasoning. 
- 
-This conundrum could be read as saying that one must define semantics before attempting pragmatics; I do not believe this, but prefer to frame this as a question of finding what model of semantics could be a linking hypothesis to allow RSA models to predict the patterns of pragmatic language use that are observed experimentally. 
-
 
 \subsection{RSA approaches to reduction}
 Scaling up RSA to handle reference games requires solving at least two problems. One is specifying a semantics system that can handle the abstract, metaphoric, and parts-based descriptions that are used -- this could be seen as the problem of accounting for initial reference. 
 
-Secondly, one must explain how to go from one successful utterance to a different (often shorter) utterance. One RSA-style model that attempts to explain why multi-part descriptions are produced initially, but then later reduce to shorter descriptions is CHAI,  a framework to bridge different levels of convention formation \cite{hawkins2021}. TODO SAY MORE ABOUT CHAI In toy models of interlocuters playing a reference game with soft semantics, initial utterances use multiple properties to collectively increase the degree of certainty in the target. However, this successful reference then shapes the priors about the meanings of the words, until the degree of certainty afforded by only one word is sufficient. 
+Secondly, one must explain how to go from one successful utterance to a different (often shorter) utterance. One RSA-style model that attempts to explain why multi-part descriptions are produced initially, but shorter descriptions are produced later is CHAI,  a framework to bridge different levels of convention formation \cite{hawkins2021}. TODO SAY MORE ABOUT CHAI In toy models of interlocuters playing a reference game with soft semantics, initial utterances use multiple properties to collectively increase the degree of certainty in the target. However, this successful reference then shapes the priors about the meanings of the words, until the degree of certainty afforded by only one word is sufficient. 
 
-\cite{hawkins2021} separating the inference problem about what the other person's lexicon is (which is how they will interpret things in the moment, b/c you may have temporarily changed their lexicon) with decisions about what to say given that 
+While CHAI can predict the qualitative pattern, there's still a question of how to predict the slope of reduction and the content of words that stay versus drop. 
 
-\cite{hawkins2021} points out that our models for communication and modeling the world and others need to be able to account for different people having different knowledge (including some tied to community membership or social role) and that vocabularies need to accomodate change over time and new things to refer to as the world changes. 
 
 \subsection{Takeaways}
-RSA seems poised as the closest theory that could be made to fit for a sequential model. Has the problem of open vocab, and of free parameter fitting, which reduce risk. At least a useful framework. 
-CHAI while not a full explanation for the full patterns of real-world data, at least is a framework that actually explains why reduction would be optimal. 
+RSA seems like the closest theoretical frameworks that could be made to fit a sequential model of iterated reference games. The big caveats are the problems of scaling up to an open vocabulary and the question of whether there will be too much flexibility from free parameters. The open vocabulary problem is a hard one; rather than wait for a fully realized semantic system, I think one criteria for judging the adequacy of semantic systems is whether they can serve as a linking hypothesis to allow RSA models to predict the patterns of pragmatic language use that are observed experimentally. 
+CHAI, while not a full explanation for the full patterns of real-world data, is a big step forward in at least providing a framework that actually explains why reduction would be optimal. 
 
-would need some level of incrementality, or else would need to redefine the step where RSA operates. (this would favor greedy algorithm, but maybe that's okay especially if we take production constraints seriously?)
-TODO CITE INCREMENTAL RSA
+\section{Psycholinguistic considerations}
+THIS SECTION NEEDS WORK!!!!
 
-\section{Psycholinguistics}
-
-Psycholinguistics imposes constraints on the algorithmic level of linguistic communication; however, determining the constraints requires understanding both production and parsing. Understanding the time course of production is particularly difficult to study. 
+The prior sections have all operated at a pretty high level of analysis, but the language and behaviors observed in reference games and real-world descriptions come from lower-level, incremental processes. Psycholinguistics imposes constraints on the algorithmic level of linguistic communication; however, determining the constraints requires understanding both production and parsing. Understanding the time course of production is particularly difficult to study. 
 
 \subsection{Top-down or bottom-up?}
 One major point of disagreement is whether production and comprehension are initially ``ego-centric'' or whether non-linguistic information, such as the perspective of the interlocuter, is exerting an top down influence from the beginning. For example, TODO cite Horton \& Keysar attempt to test this, but acknowledge that monitoring and fixing of the utterance, including pre-initiation of the utterance, may take into account the listener's perspective. %TODO say more about the egocentrism thing
@@ -231,21 +195,35 @@ Hard to measure and hard to determine what measurements would adjudicate when it
 THIS WHOLE SECTION NEEDS WORK!!
 some takeaways related to how a different type of data is needed to understand these claims
 
+has it's own questions, but also may be the  source of bound in a bounded rationality approach 
 
-	\section{What would we want?}
+	\section{So, what now?}
+	
+	* What would we want from formal theories
+	- adequacy to predict/ account for the phenomena of interest
+	  - which leads to questions about nailing down what the phenomena are
+	- what's the right level to do prediction at?
+
+Any theory also needs to be compatible with what we know at different levels of analysis and related phenomena. A theory of linguistic iterated reference to novel objects need not cover how named objects are referred to, or how conventions form in drawing, or how language evolves, or how language is processed in the brain. But it is important the theory be compatible with all of these; it should not make untrue assumptions about these other areas. Ideally, the boundaries of a theory would be continuous with adjacent results and theories. 
+Related, there are questions of how to scope a theory of iterated reference games; for instance, it may make sense to have a model that only covers dyadic interactions or a certain modality of interaction or a certain type of stimuli. This limited scope is fine if it is clear and the assumptions of the models don't lead to wild (false) predictions. 
+	
+	One thing we need is a better definition of the phenomena and when they occur. I believe the phenomena of central interest here is how people describe images/objects/things where there is not a canonical or conventional name and the dynamics of how this process, over repetition results in nicknames. There are side issues to understanding this, such as explaining why the process goes through the intermediate steps it does, why it is partner specific, and how understandable it is to an outsider. 
+	
+	So how do we get there?
+	
+	As alluded to above, I think there are a few potential avenues for progress in this area. 
+	
+	One is a better empirical and descriptive understanding of the phenomena. How do circumstantial knobs (group size, communication modality, stimuli, etc) push around the extend to which we see the phenomena of reduction, convention formation, and partner specificity? We don't have to finely map the entire landscape, but some sense of the geography of experimental space is necessary. Secondly, with these related phenomena, there's a question of how closely they are tied. Does reduction only occur via convention formation? Is one possible without the other? A greater range of experimental situations could tell how well these separate versus correlate in different situations, which will in turn clarify what theory should explain. 
+	
+	TODO Other empirical work could push down from just looking at produced utterances to something something processing. 
+	
+	--------
 	
 	I will not be presenting a formal theory here, because I don't think this topic is ready for one yet. I mean one could posit mathematical relations, but they'd be easily disproved because we don't understand the relationships between things. 
 	
 	It'll also a question of threading a needle between aiming to incorporate too many factors (being too ambitious) and too few (overfitting to too specific a scenario). 
 	
-	So, what exactly is the phenomena of interest here? 
-	* how people describe images/objects/things where there is not a canonical or conventional name 
-	* the dynamics of how this results in "nicknames" 
-	--> why does it go through the intermediate steps it does; why is it partner specific; how understandable is it to the outsider? 
-	
-	(* seems like when there is a canonical / conventional name, one generally just uses that; if that doesn't suffice for contrast, add adjectives/modifiers that do. )
-	-- > should be convergent with what happens in nameable places; also with coinages / evo of language and convention over time; should also be non-contradicting what happens in other communication modalities; 
-	
+
 	could simplify with given a starting point lexicon and a given history which might be null; what predicts what a person says. 
 	
 	"Person says" is super open ended and from data we have; there's lots of options; so there's a question of what the right things are to predict -- what is a useful classification scheme in terms of types of utterances or lengths of utterances. 
@@ -256,11 +234,9 @@ some takeaways related to how a different type of data is needed to understand t
 	
 	While formal theories of iterated reference would not need to cover the larger issue of language evolution, there should be touching between theories of this and the larger scale issues that this can sometimes cause. 
 	
-	A lot of ways to slice or possible angles: when you don't have or can't produce words how to circumlocute to describe; partner awareness / cooperative communication / feedback; social habits / norms; could be an angle onto efficiency. 
 	
 	nicknames/ labels/ lexicalized units : not just metaphor: process of going from "bad but good enough" to "good"
 	
-	issues of calibration around what info is sufficient / per effort 
 	
 	Here are what I think are some interesting open questions relating to reference. 
 	
@@ -313,5 +289,38 @@ some takeaways related to how a different type of data is needed to understand t
 	d) what's the processing look like? 
 	
 	? e) ? do we include any AA or game-theory? 
+	
+	\section{to be reincorporated}
+	TODO YOU NEED TO DO MORE WORK WRANGLING HERE!!!! Potentially come back or move stuff below!
+	REREAD piantodosi2012 
+	
+	TODO dig into more: \cite{piantadosi2012} has me wondering whether conversational pacts are even real, or whether they are actually just contextual reduction is ambiguity and them peaking of the distributions in a slightly recursive way plus some recency effects and habit. This approach requires that speakers and listeners have similar models of language and the world at least in the relevant domain so that they can use contextual information to constrain the situation 
+	
+	\cite{piantadosi2012} in line with RSA assumes that inference is cheap and that context and speaker goals are constantly taken into account 
+	
+	Groups can be complicated \cite{guilbeault2021} looks at how different sizes of groups interacting over a network structure result in different category boundaries, where large groups end up more the same than small groups. Brings up questions about network structure and how we should think about networks even within groups where multiple people are interacting synchronously. Some of the other try to only allow lines between points -- either bidirectional is dialog or single-directional in monolog but there's still the development of shared stuff from the co-presence of listening to someone else even without direct interaction? 
+	
+	
+	\cite{hawkins2020b} How do you break symmetries in initial descriptions: there's prior variability across speaker preferences (they may each have a preferred label, but be unsure if others will accept it) and/or speakers may also not have labels and need to do some sampling. This doesn't account for production time course factors. 
+	
+	this is a domain general model about abstracting over instances and forming conventions -- it is not particular to language, although peculiarities of language will also occur (and may have more levels to conventionalize on) 
+	\cite{hawkins2021} says there are 3 core cognitive abilities: the ability to represent that there is variability in other's lexicons; to coordinate via online learning; and to generalize across interactions ("partial pooling" model where updates both to partner and population) 
+YOU ARE HERE
+
+
+Might be some more theory neutral ways of trying to quantify information here in an empirically derived way. 
+
+
+
+This seems like it would lend itself to a formal model: just list all the options and their corresponding levels of effort and informativity and see where reality lands. In practice, determining the options, their levels of effort, and their levels of informativity is a big problem that seems to require solving a bunch of other open quesitons. 
+
+
+Over the short time scale of one utterance to the next, the wider meaning of language (the prior) can at least be treated as static. There are still issues where What types of communication utterances are efficient should depend significantly on the context and communication channels. In particular, if interlocuters can interrupt with questions, or cut off a speaker by selecting a referent, then incrementally efficient utterances make sense \cite{gibson2019}. In other contexts, with lower feedback, it might make sense to more evenly distribute information content or rely on surer, but longer descriptions, if there isn't an option to add elaborations contingent on interlocuter behavior.
+
+Efficiency also predicts that a changing conversational history will change the context and thus different descriptions may be efficient. This could operate both by increasing beliefs that a certain utterance will be understood (and this is contextually low ambiguity) or more generally by shaping the syntactic expectations, perhaps making it easier to produce and comprehend odder descriptions. 
+
+\cite{hawkins2021} separating the inference problem about what the other person's lexicon is (which is how they will interpret things in the moment, b/c you may have temporarily changed their lexicon) with decisions about what to say given that 
+
+\cite{hawkins2021} points out that our models for communication and modeling the world and others need to be able to account for different people having different knowledge (including some tied to community membership or social role) and that vocabularies need to accomodate change over time and new things to refer to as the world changes. 
 
 \end{document}
