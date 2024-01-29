@@ -154,49 +154,35 @@ RSA seems like the closest theoretical frameworks that could be made to fit a se
 CHAI, while not a full explanation for the full patterns of real-world data, is a big step forward in at least providing a framework that actually explains why reduction would be optimal. 
 
 \section{Psycholinguistic considerations}
-THIS SECTION NEEDS WORK!!!!
 
-The prior sections have all operated at a pretty high level of analysis, but the language and behaviors observed in reference games and real-world descriptions come from lower-level, incremental processes. Psycholinguistics imposes constraints on the algorithmic level of linguistic communication; however, determining the constraints requires understanding both production and parsing. Understanding the time course of production is particularly difficult to study. 
+The prior sections have all operated at a pretty high level of analysis, but the language and behaviors observed in reference games and real-world descriptions come from lower-level, incremental processes. Psycholinguistics imposes constraints on the algorithmic level of linguistic communication; to the extent we can infer these constraints from fine-grained behavior or transfer these constraints from other areas of psycho- and neuro-linguistics, these constraints may provide bounds for the computational models. 
+
+TODO MAKE THE ABOVE SUCK LESS
 
 \subsection{Top-down or bottom-up?}
-One major point of disagreement is whether production and comprehension are initially ``ego-centric'' or whether non-linguistic information, such as the perspective of the interlocuter, is exerting an top down influence from the beginning. For example, TODO cite Horton \& Keysar attempt to test this, but acknowledge that monitoring and fixing of the utterance, including pre-initiation of the utterance, may take into account the listener's perspective. %TODO say more about the egocentrism thing
+One large question in language processing and production broadly is what the relative balance of bottom-up and top-down influences are CITATIONS NEEDED. 
 
-Parallel to the egocentrism debate in production is an egocentrism debate in comprehension. Basically, the question is whether an intial stage of comprehension is egocentric, that is, not taking into account non-linguistic input about other's knowledge state or intent. This was primarily studied using eye-tracking as a proxy for interpretation, which is problematic as we don't understand fully what eye-movements mean TODO CITE JUDITH. 
+In the psycholinguistics of reference games, a hotly debated question is whether the early moments of production and processing are ``ego-centric'' or can be influenced by non-linguistic information, such as the perspective of the interlocuter. On the production side, TODO cite Horton \& Keysar attempt to test this, but acknowledge that monitoring and fixing of the utterance, including pre-initiation of the utterance, may take into account the listener's perspective. %TODO say more about the egocentrism thing
 
-In any case, \cite{keysar2000} argues for an initial egocentric perspective on the basis that people often intially look at objects that are good matches to a description that are not mutually visible with their interlocuter. They seem to be assuming that if people weren't egocentric, people should have very strong priors that interlocuters only refer to things that are mutually know, which is clearly false (why ask where something is if you can see it?). 
+On the comprehension side, \cite{keysar2000} argues for an initial egocentric perspective on the basis that people often intially look at objects that are good matches to a description that are not mutually visible with their interlocuter. This interpretation rests on a couple dubious linking hypotheses: that if people consider an interlocuters perspective, their prior should be that the interlocuter only refers to mutually known things and separately that looking at an object is a sign that it is considered a potential referent (eye-tracking data is widely interpreted this way, but there is evidence that this proxy is only approximate CITE DEGEN).
 
-The counterpoint presented by \cite{hanna2003} is a constraint-based theory where many factors can play into comprehension, including working memory limitations. 
-
- This narrow issue raises larger questions about the relative influences of top-down and bottom-up factors in influencing language processing and production.Underneath the poor experiments and strong positions are a number of interesting and complicated questions. It seems clear that many factors can sway comprehension, including both "top-down" and "bottom-up" processes, and understanding the relative mix of these factors could be very interesting. However, it's a difficult empirical matter to disentangle all these factors and a number of nuisance experiment parameters especially when the measures we have are far removed from the constructs of interest. 
+The counterpoint to initial ego-centrism presented by \cite{hanna2003} is a constraint-based theory where many factors can play into comprehension, including working memory limitations. Many factors may influence language production and comprehension, to varying extents, and on differing time courses. Determining the relative timings and weights is an important endeavor; however, as these experiments show, it's empirically difficult to do so when the measurements are far from the constructs and there are nuisance experimental parameters as well. 
 
 \subsection{Bounds on rational approaches}
-Production poses a possible deviation from the idealized RSA models in that production requires the retrieval or generation of a potential good enough utterance in the first place. The difficulties of utterance planning may cause deviations from what information-theory would predict would be efficient, based on production biases such as easy first, plan reuse, and reduce interference \cite{macdonald2013}. 
-
-Understanding the limitations on production is challenging: while it is easy to get examples of what utterances are produced, it is much more difficult to understand how the utterances were planned. One approach is to look at utterance production with and without time pressure and see how utterances differ, but this rests on (uncertain) assumptions about how time pressure changes the production process. 
-
-Many theories such as RSA operate over a set of options, but don't provide answers to how the option space is created in the first place. 
-
-\cite{heller2012} disagrees and says that speakers have a harder time than listeners b/c they need to model the listener (at least approximately) %TODO re-read heller
-
-There's interplay between production, comprehension, and what the typology of the language is, that constrain the options for a bounded rational approach like RSA. \cite{macdonald2013} provides a functionalist account claiming that utterance planning is difficult, so speakers have biases in their production. These biases are easy first, plan reuse, and reduce interference. Taking into account both word-level and context-dependent factors, easy first seems to accord with memory retrieval theories. %TODO say more about other parts 
-Under this model, these speaker patterns drive typology and the statistics of language, so comprehenders rely on these statistics of input to make predictions and do pragmatic interpretation. 
-
-
-
-One issue with any `which came first and is the driver' arguments is that language is a cultural artifact and doesn't ground out in something external. There isn't an external set of statistics for the language system to be adapted to -- the statistics are also generated by the language system. Thus, as an empirical matter it is difficult to figure out which of comprehension and production is `driving' statistics, as both are under pressure to be calibrated to the another. This calibration is similar to the difficulty determining the division of labor in audience design, just on a different granularity of analysis. 
-
-To avoid circularity, \cite{macdonald2013} claims that some of the production pressures are related to specific mechanistic aspects of memory and domanin general features such as saliency. %TODO reread macdonald and check 
-
-one other angle on production is to look at disfluencies as a symptom of speaker needing to think (ex \cite{yoon2014} et al use this as a measure)
+In additional to possible information-integration timing limitations on optimality, the retrieval and generation of utterances may be another source of deviation from optimal models. Utterance planning is difficult, and production biases such as easy first, plan reuse, and reduce interference that make production easier may deviate from what information-theoretic approaches would predict as efficient \cite{macdonald2013}.
+Another limitation is the search problem of production. RSA and other computational theories assume that alternatives are readily available, and then provide ways of choosing from among the options. Especially with low-codability targets, the initial mental generation of any option may be a bottleneck. This is difficult to study, obviously, but trying to get traction on initial utterance planning would answer important questions. 
+There are empirical challenges with determining what is difficult for speakers to produce, although analyses of disfluencies \cite{yoon2014} is one approach. 
 
 \subsection{Takeaways}
-Hard to measure and hard to determine what measurements would adjudicate when it depends on thought. However, given sufficient data, models of utterance generation or incremental processing that tie to data on time course of production or comprehension (perhaps also with eye-tracking), could resolve a lot. There's room for fine-grained models, but we don't have the data. Nor do we understand the relationships between the stimuli or the search space for productions. 
 
-THIS WHOLE SECTION NEEDS WORK!!
-some takeaways related to how a different type of data is needed to understand these claims
+Some of the questions raised from a psycholinguistic angle are about the fine-grained time course of reference games: how utterances are generated and interpreted and what information is integrated when. Nonetheless, the big picture is that this instance of language use, in common with other instances of language use, is constrained by the general processes of language cognition.
 
-has it's own questions, but also may be the  source of bound in a bounded rationality approach 
+Studying reference games on this level needs a different type of data (eye-tracking, timing details of utterances and responses) than the previous that can rely on transcripts of games. 
 
+TODO WORK
+
+It's possible that some misfit of optimal approaches may be due to something something bounded rationality
+Pushing down levels of analysis, resource-rational models should embody some of the constraints from feasible memory retrieval, production, and processing. Some of these will be from domain general processes (memory retrieval) and others may be about the language system in particular. 
 	\section{So, what now?}
 	
 	* What would we want from formal theories
@@ -211,67 +197,20 @@ Related, there are questions of how to scope a theory of iterated reference game
 	
 	So how do we get there?
 	
-	As alluded to above, I think there are a few potential avenues for progress in this area. 
+	As alluded to above, I think there are a few potential avenues for progress in this area. How to knit data and theory?
 	
-	One is a better empirical and descriptive understanding of the phenomena. How do circumstantial knobs (group size, communication modality, stimuli, etc) push around the extend to which we see the phenomena of reduction, convention formation, and partner specificity? We don't have to finely map the entire landscape, but some sense of the geography of experimental space is necessary. Secondly, with these related phenomena, there's a question of how closely they are tied. Does reduction only occur via convention formation? Is one possible without the other? A greater range of experimental situations could tell how well these separate versus correlate in different situations, which will in turn clarify what theory should explain. 
+	One is a better empirical and descriptive understanding of the phenomena. How do circumstantial knobs (group size, communication modality, stimuli, etc) push around the extend to which we see the phenomena of reduction, convention formation, and partner specificity? We don't have to finely map the entire landscape, but some sense of the geography of experimental space is necessary. Secondly, with these related phenomena, there's a question of how closely they are tied. Does reduction only occur via convention formation? Is one possible without the other? A greater range of experimental situations could tell how well these separate versus correlate in different situations, which will in turn clarify what theory should explain. CITE 20 QUESTIONS PAPER
 	
-	TODO Other empirical work could push down from just looking at produced utterances to something something processing. 
+	Another empirical avenue is to fill in descriptive details on the process of reduction. This will require finding useful joints to carve the rich language data into. Quantitatively, what types of utterances tend to occur after what other utterances? One could imagine trying to map the probabilistic FSA and transition probabilities. TODO NEEDS WORK 
 	
-	--------
+	Another avenue is to push down a level of analysis and do empirical work looking at how utterances are produced rather than just recording what descriptions are produced. This might be especially useful for initial descriptions where the search problem is the hardest. 
 	
-	I will not be presenting a formal theory here, because I don't think this topic is ready for one yet. I mean one could posit mathematical relations, but they'd be easily disproved because we don't understand the relationships between things. 
+	From the theory side, I think the most approachable way is to model the increment of what to say or how to interpret given a certain communication history: one can usefully compare options and condition on the prior. The big questions here are how to handle open-ended semantics and how to construction the option set. There's questions of whether predicting utterances is right thing, or whether a more abstracted version (perhaps predicting how many clauses to use, or whether to use description and/or name) is better. 	It'll also a question of threading a needle between aiming to incorporate too many factors (being too ambitious) and too few (overfitting to too specific a scenario). What's a minimal viable non-toy example? 
 	
-	It'll also a question of threading a needle between aiming to incorporate too many factors (being too ambitious) and too few (overfitting to too specific a scenario). 
+	Could also try to start bridging a gap with non-dyadic RSA? How to represent gradient or uncertainty over knowledge states
 	
-
-	could simplify with given a starting point lexicon and a given history which might be null; what predicts what a person says. 
+	Coming at this from the efficiency standpoint, one could empirically address what the information content of different alternatives is -- that is, whether on a comprehension side, the observed patterns are efficient. This leaves out the potential that production side is the bottleneck on efficiency.  
 	
-	"Person says" is super open ended and from data we have; there's lots of options; so there's a question of what the right things are to predict -- what is a useful classification scheme in terms of types of utterances or lengths of utterances. 
-	
-	There are a lot of potential knobs here -- could look at different situations etc. 
-	
-	Lots we don't know robustly like what are the parameters of the space under which reduction (operationalized somehow) occurs -- what sorts of stims, what sorts and sizes of constrast sets, what types of people, what communication modes? 
-	
-	While formal theories of iterated reference would not need to cover the larger issue of language evolution, there should be touching between theories of this and the larger scale issues that this can sometimes cause. 
-	
-	
-	nicknames/ labels/ lexicalized units : not just metaphor: process of going from "bad but good enough" to "good"
-	
-	
-	Here are what I think are some interesting open questions relating to reference. 
-	
-	Open theory/predictoin question: One hole in the literature is a satisfactory explanation of the phenomenon of reduction that can make predictions about what words drop or are kept and what *rate* of reduction might be expected. Two starting points would be the CHAI model that gives a computational model for how longer initial utterances and later shorter utterances could be optimal \cite{hawkins2021}, and the idea raised in \cite{leung2023} that forming a convention requires two stages: some referential expression must succeed in communicating the target, and then shortening that expression into a more reduced form.
-	
-	Open empirical q: Related to reduction is the question of whether the reduction phenomena is efficient, or rather, what linking assumptions are needed to argue that it is efficient. Would shorter utterances perhaps be understood faster than the rounds where they are produced? Is the bottleneck on producing the shorter utterances? 
-	
-	Open empiricial question: One last area that lacks strong theoretic explanations is what happens in groups of more than two people. What would one need to add to RSA to explain multi-person dynamics? There are verbal theories about group interactions from \cite{yoon2018}, but other communication traditions don't cache out in clear predictions about group performance. 
-	
-	some sort of partial pooling 
-	
-	Some particular challenges for using RSA in practice are the various ways that communication is open ended: it has open vocabulary, open issues of compositionality, open number of turns, and (with spoken language) is highly incremental with options to take actions or interrupt mid sentence. As it becomes more open-ended, issues of how to consider alternatives and the psychological implausibility of actually considering all of them may come into play. A resource-rational approach that uses sampling instead of exhaustivity may provide a way of pushing this computational theory down into being slightly more concrete. 
-	
-	In terms of theories of interactions, I favor partial-pooling models that treat people as keeping some track of the individuals and situations they interact in while also showing some transfer-learning and generalization across people and contexts. How these two factors balance against each other is an interesting empirical question. 
-	
-	I believe that people are fairly sophisticated at modeling the knowledge states of their interlocuters, probably through some combination of explicitly modelling knowledge the use of good heuristics. Many of these beliefs may be graded, and many be on the basis of a heirarchical framework of what knowledge tends to be known by what categories of people.  Cultural norms around givenness are something that must be learned jointly with other norms about symbolic communication (primarily language). 
-	
-	Pushing down levels of analysis, resource-rational models should embody some of the constraints from feasible memory retrieval, production, and processing. Some of these will be from domain general processes (memory retrieval) and others may be about the language system in particular. 
-	When considering repeated reference especially for difficult-to-name targets, I think there's a productive split between what is needed for 'first contact' -- establishing an initial successful reference -- and what drives subsequent references, where reduction and changes need to be accounted for. One key distinction that doesn't get explicitly highlighted much (but is brought up in some recent work, such as \cite{leung2023}) is that the process of `first contact' -- establishing initial reference -- is at least somewhat separable from the repeated reference / reduction phenomenon. They're probably not totally separate as the same systems will need to work for both, but there are probably peculiarities to the reduction part. 
-	
-	at a high level, want to be able to predict reduction curves! even just in terms of number of words, nothing that currently exists can explain why the rate and shape of drop-off is what it is! There's also claims that it's "efficient" or that partner specificity is "efficient" but the levels of partner specificity and so-called efficiency haven't been tested b/c we don't know how alternatives would have gone over!! could use more data on what the curves are like -- so you have more to fit to. 
-	
-	at a mid level, want to predict one utterance from the previous -- may be able to do something RSAish where we think about how much info each part gives (could do some empirical derivations). would need to come up with the right set of operations / primitives to get away from the openness
-	
-	Another piece is that reduction isn't just about shortening in the number of words or concepts used; it also tends to follow a stereotyped pattern, where more abstract, holistic "names" stick, while descriptions that may be more concrete or describe the image piece-mail tend to drop out. Why is this what happens?  Is there a way to model the initial semantics of these pieces and of the updating such that this pattern of what sticks is predicted? 
-	
-	An additional complexity here is that the end point can vary. Usually holistic or analogic descriptions win out \cite{clark1986}, but this isn't absolute. Sometimes groups may use something strange and even something that is on a lower-level or on a meta-level as their referring name, and for them, this can be effective. So to fully explain this, we need to take into account the path dependency for how reduced utterances evolve, and potentially also account for issues such as people's relationships or humor value. 
-	
-	A fully satisfying explanation that doesn't card code some preferences may need to refer to production and comprehension factors. 
-	
-	Groups! Its easy to get lost in studying reference games, but the full phenomena of describing initially non-named things takes place beyond dyads in a variety of situations (CITE ROBERT NETWORK STUFF). There's lot of claims made about how face-to-face dyads are more natural (which tends not to be substantiated), but it's an interesting question how people's capacities for communication are used across a variety of settings and modalities. Good theories will also be able to explain variation based on factors like communication modality and group size. 
-	
-	CITE 20 questions with nature paper
-	
-	also question of how to extend RSA to multiparty? 
 	
 	\section{How will the rest of this thesis move us in that direction?}
 	
@@ -291,7 +230,6 @@ Related, there are questions of how to scope a theory of iterated reference game
 	? e) ? do we include any AA or game-theory? 
 	
 	\section{to be reincorporated}
-	TODO YOU NEED TO DO MORE WORK WRANGLING HERE!!!! Potentially come back or move stuff below!
 	REREAD piantodosi2012 
 	
 	TODO dig into more: \cite{piantadosi2012} has me wondering whether conversational pacts are even real, or whether they are actually just contextual reduction is ambiguity and them peaking of the distributions in a slightly recursive way plus some recency effects and habit. This approach requires that speakers and listeners have similar models of language and the world at least in the relevant domain so that they can use contextual information to constrain the situation 
@@ -303,24 +241,16 @@ Related, there are questions of how to scope a theory of iterated reference game
 	
 	\cite{hawkins2020b} How do you break symmetries in initial descriptions: there's prior variability across speaker preferences (they may each have a preferred label, but be unsure if others will accept it) and/or speakers may also not have labels and need to do some sampling. This doesn't account for production time course factors. 
 	
-	this is a domain general model about abstracting over instances and forming conventions -- it is not particular to language, although peculiarities of language will also occur (and may have more levels to conventionalize on) 
 	\cite{hawkins2021} says there are 3 core cognitive abilities: the ability to represent that there is variability in other's lexicons; to coordinate via online learning; and to generalize across interactions ("partial pooling" model where updates both to partner and population) 
-YOU ARE HERE
-
-
-Might be some more theory neutral ways of trying to quantify information here in an empirically derived way. 
-
-
-
-This seems like it would lend itself to a formal model: just list all the options and their corresponding levels of effort and informativity and see where reality lands. In practice, determining the options, their levels of effort, and their levels of informativity is a big problem that seems to require solving a bunch of other open quesitons. 
-
-
-Over the short time scale of one utterance to the next, the wider meaning of language (the prior) can at least be treated as static. There are still issues where What types of communication utterances are efficient should depend significantly on the context and communication channels. In particular, if interlocuters can interrupt with questions, or cut off a speaker by selecting a referent, then incrementally efficient utterances make sense \cite{gibson2019}. In other contexts, with lower feedback, it might make sense to more evenly distribute information content or rely on surer, but longer descriptions, if there isn't an option to add elaborations contingent on interlocuter behavior.
 
 Efficiency also predicts that a changing conversational history will change the context and thus different descriptions may be efficient. This could operate both by increasing beliefs that a certain utterance will be understood (and this is contextually low ambiguity) or more generally by shaping the syntactic expectations, perhaps making it easier to produce and comprehend odder descriptions. 
 
 \cite{hawkins2021} separating the inference problem about what the other person's lexicon is (which is how they will interpret things in the moment, b/c you may have temporarily changed their lexicon) with decisions about what to say given that 
 
 \cite{hawkins2021} points out that our models for communication and modeling the world and others need to be able to account for different people having different knowledge (including some tied to community membership or social role) and that vocabularies need to accomodate change over time and new things to refer to as the world changes. 
+
+
+An additional complexity here is that the end point can vary. Usually holistic or analogic descriptions win out \cite{clark1986}, but this isn't absolute. Sometimes groups may use something strange and even something that is on a lower-level or on a meta-level as their referring name, and for them, this can be effective. So to fully explain this, we need to take into account the path dependency for how reduced utterances evolve, and potentially also account for issues such as people's relationships or humor value. 
+
 
 \end{document}
