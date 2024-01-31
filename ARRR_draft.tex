@@ -71,6 +71,7 @@ Multi-way conversations complicate the verbal theories of audience design and pa
 
 One expects that the ability to track partner's knowledge states would eventually degrade as groups got bigger, but it's an empirical matter how large groups have to be before speakers weren't able to track individual performance and knowledge. There is neither sufficient data nor theories on how utterance design changes with group size. 
 
+A different paradigm that does look at much larger groups in networks is 	Groups can be complicated \cite{guilbeault2021} looks at how different sizes of groups interacting over a network structure result in different category boundaries, where large groups end up more the same than small groups. Brings up questions about network structure and how we should think about networks even within groups where multiple people are interacting synchronously. Some of the other try to only allow lines between points -- either bidirectional is dialog or single-directional in monolog but there's still the development of shared stuff from the co-presence of listening to someone else even without direct interaction? TODO NEEDS WORK
 
 \subsection{Convention formation}
 Over repetitions with the same partner, dyads in repeated reference games tend to form shared ``conventions'' about how to refer to the initially ambiguous targets. These conventions tend to be partner- and context-specific: changes in the speaker, audience members, or changes in the context can all license the use of a new description \cite{metzing2003a, ibarra2016, yoon2014}.
@@ -87,6 +88,9 @@ This set of empirical results have been characterized in descriptive theories, b
 What are potential explanations for why convention formation occurs?
 
 While not an explanation, \cite{leung2023} usefully points out that forming a convention can be thought of as preceding in two stages: first some referential expression must succeed in communicating the target, and only then can that expression turn into a more reduced form. Breaking the convention-formation process into these two steps may make it more tractable. 
+
+
+One wrinkle is that many features of initial descriptions can become conventions. Typically holistic or analogic descriptions win out \cite{clark1986}, but this isn't absolute. Groups may use something strange and even something that is on a lower-level or on a meta-level as their referring name, and for them, this can be effective. This suggests a strong path dependency for how reduced utterances evolve, potentially influenced by factors such as relationships and humor value. 
 
 Another question is whether convention formation requires a "special" mechanism and theory, or whether the results can be sufficiently explained under broader theories of efficiency or communication (as discussed below). 
 
@@ -184,32 +188,35 @@ TODO WORK
 It's possible that some misfit of optimal approaches may be due to something something bounded rationality
 Pushing down levels of analysis, resource-rational models should embody some of the constraints from feasible memory retrieval, production, and processing. Some of these will be from domain general processes (memory retrieval) and others may be about the language system in particular. 
 	\section{So, what now?}
-	
-	* What would we want from formal theories
-	- adequacy to predict/ account for the phenomena of interest
-	  - which leads to questions about nailing down what the phenomena are
-	- what's the right level to do prediction at?
+
+What would we want from formal theories and computational models?
 
 Any theory also needs to be compatible with what we know at different levels of analysis and related phenomena. A theory of linguistic iterated reference to novel objects need not cover how named objects are referred to, or how conventions form in drawing, or how language evolves, or how language is processed in the brain. But it is important the theory be compatible with all of these; it should not make untrue assumptions about these other areas. Ideally, the boundaries of a theory would be continuous with adjacent results and theories. 
+
 Related, there are questions of how to scope a theory of iterated reference games; for instance, it may make sense to have a model that only covers dyadic interactions or a certain modality of interaction or a certain type of stimuli. This limited scope is fine if it is clear and the assumptions of the models don't lead to wild (false) predictions. 
 	
-	One thing we need is a better definition of the phenomena and when they occur. I believe the phenomena of central interest here is how people describe images/objects/things where there is not a canonical or conventional name and the dynamics of how this process, over repetition results in nicknames. There are side issues to understanding this, such as explaining why the process goes through the intermediate steps it does, why it is partner specific, and how understandable it is to an outsider. 
+	A key part of formal theories and computational models is they need to make clear quantitative predictions that can account for the existing data regarding the phenomena of interest. 
 	
-	So how do we get there?
 	
-	As alluded to above, I think there are a few potential avenues for progress in this area. How to knit data and theory?
+	Before we can do that, we need is a better definition of the phenomena and when they occur. I believe the phenomena of central interest here are a) how people describe images/objects/things where there is not a canonical or conventional name and b) the dynamics of how this process, over repetition, results in nicknames. Some components include explaining why the process goes through the intermediate steps it does, why it is partner specific, and how understandable the descriptions are to non-participants. 
 	
-	One is a better empirical and descriptive understanding of the phenomena. How do circumstantial knobs (group size, communication modality, stimuli, etc) push around the extend to which we see the phenomena of reduction, convention formation, and partner specificity? We don't have to finely map the entire landscape, but some sense of the geography of experimental space is necessary. Secondly, with these related phenomena, there's a question of how closely they are tied. Does reduction only occur via convention formation? Is one possible without the other? A greater range of experimental situations could tell how well these separate versus correlate in different situations, which will in turn clarify what theory should explain. CITE 20 QUESTIONS PAPER
+There are a few options for making progress. The gap between data and theory can be narrowed from both the data and theory sides. 
+
+\subsection{Data side}
+	
+	One necessity is a better empirical and descriptive understanding of the phenomena of interest. How do circumstantial knobs (group size, communication modality, stimuli, etc) push around the extend to which we see the phenomena of reduction, convention formation, and partner specificity? We don't have to finely map the entire landscape, but some sense of the geography of experimental space is necessary. Secondly, with these related phenomena, there's a question of how closely they are tied. Does reduction only occur via convention formation? Is one possible without the other? A greater range of experimental situations could tell how well these separate versus correlate in different situations, which will in turn clarify what theory should explain. CITE 20 QUESTIONS PAPER
 	
 	Another empirical avenue is to fill in descriptive details on the process of reduction. This will require finding useful joints to carve the rich language data into. Quantitatively, what types of utterances tend to occur after what other utterances? One could imagine trying to map the probabilistic FSA and transition probabilities. TODO NEEDS WORK 
 	
 	Another avenue is to push down a level of analysis and do empirical work looking at how utterances are produced rather than just recording what descriptions are produced. This might be especially useful for initial descriptions where the search problem is the hardest. 
 	
+	\subsection{Theory side}
+	
 	From the theory side, I think the most approachable way is to model the increment of what to say or how to interpret given a certain communication history: one can usefully compare options and condition on the prior. The big questions here are how to handle open-ended semantics and how to construction the option set. There's questions of whether predicting utterances is right thing, or whether a more abstracted version (perhaps predicting how many clauses to use, or whether to use description and/or name) is better. 	It'll also a question of threading a needle between aiming to incorporate too many factors (being too ambitious) and too few (overfitting to too specific a scenario). What's a minimal viable non-toy example? 
 	
-	Could also try to start bridging a gap with non-dyadic RSA? How to represent gradient or uncertainty over knowledge states
+	Another theory component is how to build a non-dyadic RSA that can represent uncertain knowledge states or jointly optimize for the responses of multiple interlocuters. Further work in general on non-toy models of RSA CITE EXAMPLES would be useful. 
 	
-	Coming at this from the efficiency standpoint, one could empirically address what the information content of different alternatives is -- that is, whether on a comprehension side, the observed patterns are efficient. This leaves out the potential that production side is the bottleneck on efficiency.  
+	Efficiency makes fairly vague predictions, and may be hard to crystallize out. One approach would be to treat the transcripts as some sort of artifact and try to determine potential counterfactuals, to see where the attested patterns fall on some larger space. Defining the space of possibilities could be difficult, and determining the information value of counterfactuals may require empirical testing. But one could address the open question of whether on a comprehension side, the observed patterns are efficient. This leaves out the potential that production side is the bottleneck on efficiency.  
 	
 	
 	\section{How will the rest of this thesis move us in that direction?}
@@ -231,12 +238,11 @@ Related, there are questions of how to scope a theory of iterated reference game
 	
 	\section{to be reincorporated}
 	REREAD piantodosi2012 
-	
 	TODO dig into more: \cite{piantadosi2012} has me wondering whether conversational pacts are even real, or whether they are actually just contextual reduction is ambiguity and them peaking of the distributions in a slightly recursive way plus some recency effects and habit. This approach requires that speakers and listeners have similar models of language and the world at least in the relevant domain so that they can use contextual information to constrain the situation 
-	
 	\cite{piantadosi2012} in line with RSA assumes that inference is cheap and that context and speaker goals are constantly taken into account 
 	
-	Groups can be complicated \cite{guilbeault2021} looks at how different sizes of groups interacting over a network structure result in different category boundaries, where large groups end up more the same than small groups. Brings up questions about network structure and how we should think about networks even within groups where multiple people are interacting synchronously. Some of the other try to only allow lines between points -- either bidirectional is dialog or single-directional in monolog but there's still the development of shared stuff from the co-presence of listening to someone else even without direct interaction? 
+	
+
 	
 	
 	\cite{hawkins2020b} How do you break symmetries in initial descriptions: there's prior variability across speaker preferences (they may each have a preferred label, but be unsure if others will accept it) and/or speakers may also not have labels and need to do some sampling. This doesn't account for production time course factors. 
@@ -250,7 +256,6 @@ Efficiency also predicts that a changing conversational history will change the 
 \cite{hawkins2021} points out that our models for communication and modeling the world and others need to be able to account for different people having different knowledge (including some tied to community membership or social role) and that vocabularies need to accomodate change over time and new things to refer to as the world changes. 
 
 
-An additional complexity here is that the end point can vary. Usually holistic or analogic descriptions win out \cite{clark1986}, but this isn't absolute. Sometimes groups may use something strange and even something that is on a lower-level or on a meta-level as their referring name, and for them, this can be effective. So to fully explain this, we need to take into account the path dependency for how reduced utterances evolve, and potentially also account for issues such as people's relationships or humor value. 
 
 
 \end{document}
