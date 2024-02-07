@@ -14,9 +14,12 @@
 	
 	\maketitle
 	
-	%TODO reread piantadosi 2012 for whether it talks about how reduction might just be in context efficiency given ambiguity and stuff 
 	
 	%TODO reread hawkins 2020b
+	
+	%TODO meehl
+	
+	%TODO egocentrism mess 
 	
 	%TODO reread hawkins 2021
 	
@@ -54,13 +57,13 @@ A big question that comes up with conversation, and interactions between agents 
 
 The ``mentalizing'' tradition treats humans as representing other humans as agents with mental states. Within this broad school, there is variation in how these representations are implemented, how information gets added or modified, what exactly is tracked, and when representations (versus heuristics) are used. 
 
-Within this tradition, many use the term ``common ground'' to refer to knowledge that two agents share. In some cases, it is used in a pre-theoretic way to mean roughly ``things you think another person will understand and won't be surprised if you reference'' \citep{leung2023, TODO}. For instance,  \citet{hanna2003} defines common ground as the ``mutual knowledge, beliefs, and assumptions'' held by the interlocuters. This meaning is rougly comparably to ``givenness'' in other domains \citep{fay2010}. 
+Within this tradition, many use the term ``common ground'' to refer to knowledge that two agents share. In some cases, it is used in a pre-theoretic way to mean roughly ``things you think another person will understand and won't be surprised if you reference'' \citep{leung2023, garrison2022}. For instance,  \citet{hanna2003} defines common ground as the ``mutual knowledge, beliefs, and assumptions'' held by the interlocuters. This meaning is roughly comparably to ``givenness'' in other domains \citep{fay2010}. 
 
- However, the problem with the term ``common ground'' is that some use it in a theoretically very loaded way, originating from the privileged versus mutual versus common knowledge framework \citep{TODO}. Under this usage, ``common ground'' is defined via infinite recursion in knowing that the other person knows that the first person knows that ...; this is the usage that comes up in formal semantics where many things may be introduced to common ground via accomodation \citep{horton1996, TODO}. In practice, humans don't tend to do more than a couple layers of recursion in their pragmatic reasoning \citep{franke2016}. Thus, it is generally not important to distinguish knowledge types at deeper recursion levels than mutual knowledge that both people know to be mutual. 
+ However, the problem with the term ``common ground'' is that some use it in a theoretically very loaded way, originating from the privileged versus mutual versus common knowledge framework \citep{clark1996}. Under this usage, ``common ground'' is defined via infinite recursion in knowing that the other person knows that the first person knows that ...; this is the usage that comes up in formal semantics where many things may be introduced to common ground via accommodation \citep{horton1996, pickering2004}. In practice, humans don't tend to do more than a couple layers of recursion in their pragmatic reasoning \citep{franke2016}. Thus, it is generally not important to distinguish knowledge types at deeper recursion levels than mutual knowledge that both people know to be mutual. 
 
-How to deterministically populate these presumed knowledge representations has been the subject of much ink spillage \citep{horton1996,clark1996, TODO}. For our purposes, what another person knows or can be expected to understand is something that computational models will want as an input or intermediary, so that it can be used to evaluate utterance options. However, the knowledge state can clearly be probabilistic and may be inferred from empirical data. 
+How to deterministically populate these presumed knowledge representations has been the subject of much ink spillage \citep{horton1996,clark1996, brown-schmidt2012}. For our purposes, what another person knows or can be expected to understand is something that computational models will want as an input or intermediary, so that it can be used to evaluate utterance options. However, the knowledge state can clearly be probabilistic and may be inferred from empirical data. 
 
-The mentalizing approaches can be contrasted with ``interactive alignment theory'' which attempts to explain how people can successfully collaborate on reference tasks without reasoning about each other's mental states \citep{pickering2004, gandolfi2022}. Its proponents claim that the alignment occurs via ``priming'' and is ``resource-free and automatic'', without providing a further explanation of what this means or how this works in terms of memory and processing \citep{pickering2004}.  Given that humans reason socially about each other readily and from a young age \citep{TODO}, it's not clear that there is a reason to prefer a non-mentalizing approach. 
+The mentalizing approaches can be contrasted with ``interactive alignment theory'' which attempts to explain how people can successfully collaborate on reference tasks without reasoning about each other's mental states \citep{pickering2004, gandolfi2022}. Its proponents claim that the alignment occurs via ``priming'' and is ``resource-free and automatic'', without providing a further explanation of what this means or how this works in terms of memory and processing \citep{pickering2004}.  Given that humans reason socially about each other readily and from a young age \citep{rakoczy2022}, it's not clear that there is a reason to prefer a non-mentalizing approach. 
 
 As an aside, the ``common ground'' tradition and the ``interactive alignment'' traditions have tended to use different types of experiments, with ``common ground'' generally using asymmetric director/matcher designs (dating back to at least \citet{krauss1966}) and the ``interactive alignment'' traditions using symmetric designs such as the `maze' task. Thus it is possible the two approaches are build around trying to explain differing sets of experimental results. 
 
@@ -103,7 +106,7 @@ A core theoretical question is whether the observed patterns of reduction, conve
 \section{Efficiency}
 One unifying framework gaining traction in psycholinguistics is efficiency, the idea that language and language use is under pressure to support efficient communication by maximizing the ratio of relevant information transmitted to effort. Efficiency is thought to arise from trade-offs between communicative expressivity and some combination of learnability and easy of production \citep{piantadosi2012, kirby2015}. 
 
-Evidence for efficiency comes from the argument that features of language are distributed much more closely to the Pareto frontier than would be expected by chance. A historically well-known example is that word frequencies follow a power-law distribution, which \cite{zipf1949} explains in terms of a ``principle of least effort'', although note that power-law distributions are common across domains and generated by a variety of processes \cite{piantadosi2014}. Stronger evidence comes from the lexical partitioning of subdomains such as color, number, and kinship terms, where the distribution of systems falls on the frontier between complexity (number of terms) and informativity (how many bits each term provides) \citep{keysar2000, gibson2019}. Syntactic features of language such as harmonic word order and dependency length also appear to be optimized for increased expressivity with minimized processing effort \citep{gibson2019, hawkins1995}. 
+Evidence for efficiency comes from the argument that features of language are distributed much more closely to the Pareto frontier than would be expected by chance. A historically well-known example is that word frequencies follow a power-law distribution, which \cite{zipf1949} explains in terms of a ``principle of least effort'', although note that power-law distributions are common across domains and generated by a variety of processes \cite{piantadosi2014}. Stronger evidence comes from the lexical partitioning of subdomains such as color, number, and kinship terms, where the distribution of systems falls on the frontier between complexity (number of terms) and informativity (how many bits each term provides) \citep{zaslavsky2018, kemp2018, gibson2019}. Syntactic features of language such as harmonic word order and dependency length also appear to be optimized for increased expressivity with minimized processing effort \citep{gibson2019, hawkins1995}. 
 	
 Efficiency arguments are based on the language artifacts of grammars and transcripts, but efficiency pressures act on language use as a process, not language as a static code \citep{gibson2019}. Thus efficiency can be seen as imposing a joint constraint on the entire communicative process: minimizing the total time and effort involved in going from an idea in one person's head to a sufficiently close idea in another person's head. A corollary of this framing is that shorter utterances (as measured in syllables or clock-time) are not always efficient if they take longer to produce or parse. 
 
@@ -137,17 +140,19 @@ Perhaps the largest challenge to RSA models is the question of how to ground out
 
 Soft semantics can run into conflict with compositionality: either every possible utterance must independently receive a degree of match with every possible object in the prior, or the prior needs to include rules for how to determine the match of a whole utterance on the basis of the match with each component. In a later experiment of \citep{degen20200406}, typicality effects made compositional semantics not work, but the utterance space was small enough that each utterance could be treated individually. 
 
- In less toy domains, there is not a satisfactory answer: some situations can be handled by empirically measuring likelihoods in an exhaustive ways, but this holistic approach is not compatible with incremental RSA \citep{TODO} or larger sets of utterances that require compositionality to be defined. In order to extend this model towards more realistic and open-ended scenarios, an important question to grapple with is what form of meaning (even at a computational level) will appropriately support pragmatic reasoning. 
+ In less toy domains, there is not a satisfactory answer: some situations can be handled by empirically measuring likelihoods in an exhaustive ways, but this holistic approach is not compatible with incremental RSA \citep{cohn-gordon2018a} or larger sets of utterances that require compositionality to be defined. In order to extend this model towards more realistic and open-ended scenarios, an important question to grapple with is what form of meaning (even at a computational level) will appropriately support pragmatic reasoning. 
 
 \subsection{RSA approaches to reduction}
 Scaling up RSA to handle reference games requires solving at least two problems. One is specifying a semantics system that can handle the abstract, metaphoric, and parts-based descriptions that are used -- this could be seen as the problem of accounting for initial reference. 
 
 Secondly, one must explain how to go from one successful utterance to a different (often shorter) utterance. One RSA-style model that attempts to explain why multi-part descriptions are produced initially, but shorter descriptions are produced later is CHAI,  a framework to bridge different levels of convention formation \citep{hawkins2021}. %TODO SAY MORE ABOUT CHAI
+CHAI's explanation for reduction is consistent with the ambiguity arguments of \citet{piantadosi2012}: initially the context is not sufficiently constraining to resolve the ambiguity of a short utterance, so multiple descriptive pieces are needed to triangulate the meaning, but as conversational history accrues, the context is sufficient to disambiguate the shorter description. 
+
 In toy models of interlocuters playing a reference game with soft semantics, initial utterances use multiple properties to collectively increase the degree of certainty in the target. This successful reference then shapes the prior over word meanings, until the degree of certainty afforded by only one word is sufficient to pick out a referent. 
 
 
 \subsection{Takeaways}
-RSA seems like the most relevant theoretical framework to a sequential model of iterated reference games. Two potential problems are scaling up to an open vocabulary and free parameters will lead to high flexibility and a lack of risky prediction \citep{TODO}.
+RSA seems like the most relevant theoretical framework to a sequential model of iterated reference games. Two potential problems are scaling up to an open vocabulary and free parameters will lead to high flexibility and a lack of risky prediction \citep{meehl}.
 
 The open vocabulary problem is a hard one; rather than wait for a fully realized semantic system, I think one criteria for judging the adequacy of semantic systems is whether they can serve as a linking hypothesis to allow RSA models to predict the patterns of pragmatic language use that are observed experimentally. 
 
@@ -160,11 +165,11 @@ CHAI, while not a full explanation for the full patterns of real-world data, is 
 The utterances observed in reference games, and that optimization-oriented theories seek to explain, are the product of lower-level, incremental processes. The algorithmic level of linguistic communication is constrained by its instantiation in the mind. To the extent we can infer these constraints from fine-grained behavior or transfer these constraints from other areas of psycho- and neuro-linguistics, these constraints may provide bounds for the computational models. 
 
 \subsection{Top-down or bottom-up}
-One large question in language processing and production broadly is what the relative balance of bottom-up and top-down influences are \citep{TODO}. 
+One large question in language processing and production broadly is what the relative balance of bottom-up and top-down influences are \citep{gwilliams,tanenhaus1995,horton2005, horton1996}. 
 
 In the psycholinguistics of reference games, a hotly debated issue is whether the early moments of production and processing are ``ego-centric'' or can be influenced by non-linguistic information, such as the perspective of the interlocuter. On the production side, \citet{horton1996} attempted to test this, but acknowledge that monitoring and fixing of the utterance, including pre-initiation of the utterance, may take into account the listener's perspective. %TODO say more about the egocentrism thing
 
-On the comprehension side, \citet{keysar2000} argued for an initially egocentric perspective on the basis that people often initially look at objects that are good matches to a description even if the object is not mutually visible to the speaker. This interpretation rests on a couple dubious linking hypotheses: that if people consider an interlocuters perspective, their prior should be that the interlocuter only refers to mutually known things;  and separately, that looking at an object is a sign that it is considered a potential referent (eye-tracking data is widely interpreted this way, but there is evidence that this proxy is only approximate \citet{TODO}).
+On the comprehension side, \citet{keysar2000} argued for an initially egocentric perspective on the basis that people often initially look at objects that are good matches to a description even if the object is not mutually visible to the speaker. This interpretation rests on a couple dubious linking hypotheses: that if people consider an interlocuters perspective, their prior should be that the interlocuter only refers to mutually known things;  and separately, that looking at an object is a sign that it is considered a potential referent (eye-tracking data is widely interpreted this way, but there is evidence that this proxy is only approximate \citet{degena}).
 
 The counterpoint to initial ego-centrism presented by \citet{hanna2003} is a constraint-based theory where many factors can play into comprehension, including working memory limitations. Many factors may influence language production and comprehension, to varying extents, and on differing time courses. Determining the relative timings and weights is an important endeavor; as these experiments show, it's empirically difficult to do so when the measurements are far from the constructs.
 
@@ -198,7 +203,7 @@ Studying reference games on this level needs a different type of data (eye-track
 	
 	One necessity is a better empirical and descriptive understanding of the phenomena of interest. How do circumstantial knobs (group size, communication modality, stimuli, etc.) push around the extend to which we observe reduction, convention formation, and partner specificity? 
 	
-	We don't have to finely map the entire landscape, but some sense of the geography of experimental space is necessary \citep{20 questions}. Secondly, with these related phenomena, there's a question of how closely they are tied. Does reduction only occur via convention formation? A greater range of experimental situations could tell how well these separate versus correlate in different situations, which will in turn clarify what theory should explain. 
+	We don't have to finely map the entire landscape, but some sense of the geography of experimental space is necessary \citep{almaatouq2022}. Secondly, with these related phenomena, there's a question of how closely they are tied. Does reduction only occur via convention formation? A greater range of experimental situations could tell how well these separate versus correlate in different situations, which will in turn clarify what theory should explain. 
 	
 	Another empirical avenue is to fill in descriptive details on the process of reduction. This will require finding useful joints to carve the rich language data into. Quantitatively, what types of utterances tend to occur after what other utterances? One could imagine trying to map the probabilistic FSA and transition probabilities that descriptively characterize language of iterated reference games.
 	
@@ -232,14 +237,6 @@ Studying reference games on this level needs a different type of data (eye-track
 	
 	d) what's the processing look like / trying to test some efficiency claims and get some incremental data
 	
-%	\section{to be reincorporated}
-%	REREAD piantodosi2012 
-%	TODO dig into more: \cite{piantadosi2012} has me wondering whether conversational pacts are even real, or whether they are actually just contextual reduction is ambiguity and them peaking of the distributions in a slightly recursive way plus some recency effects and habit. This approach requires that speakers and listeners have similar models of language and the world at least in the relevant domain so that they can use contextual information to constrain the situation 
-%	\cite{piantadosi2012} in line with RSA assumes that inference is cheap and that context and speaker goals are constantly taken into account 
-%	
-%	
-%
-%	
 %	
 %	\cite{hawkins2020b} How do you break symmetries in initial descriptions: there's prior variability across speaker preferences (they may each have a preferred label, but be unsure if others will accept it) and/or speakers may also not have labels and need to do some sampling. This doesn't account for production time course factors. 
 %	
