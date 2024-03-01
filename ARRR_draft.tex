@@ -15,6 +15,10 @@
 	\maketitle
 	
 	
+	BIG TODOS:
+	* figure out the philosophy of science stuff that we like 
+	
+	%TODO an example can strengthen this kind of abstract info and make it more concrete
 
 	
 	Language is an amazing human technology that supports much of human culture by being an efficient way of conveying many concepts with precision. Humans communicate in a range of situations, using language in ways that range from scripted and stereotyped (ex. greetings) to very open ended. The extensibility of language for use in novel contexts supports the transmission of new ideas and communication with new people. 
@@ -25,10 +29,16 @@
 	
 	How can we explain and predict these phenomena?
 	
+	%TODO can you say a bit about why we'd want to do this? other than "because science"? does this fit into a broader theory of language? communication?
+	
+	%TODO be more explicit about the Philosophy of science backing here
+	
 	\section{Levels of explanation}
-	One issue with developing formal models of human linguistic behavior is that the data is rich and the possibilities are vast. How can one take rich, messy interaction data and tame it into meaningful features that are tractable to model and predict? 
+	One issue with developing formal models of human linguistic behavior is that the data are rich and the possibilities are vast. How can one take rich, messy interaction data and tame it into meaningful features that are tractable to model and predict? 
 	
 	One can define the question of interest, and thus the scope of the modeling and prediction problem, at a few different levels:
+	
+	%TODO introduce the empirical observation by explaining the set-up and then move forward with this 
 	
 	1. A clear trend observed in experiments is that utterance length reduces over repeated reference to the same novel target between the same pair of interlocuters. This has a straightforward output metric (utterance length in words), and given enough data, a functional form could be fit.  Determining the relevant input predictors, and operationalizing them would be a challenge, and then there's the wide variation in reduction rate for individual dyads within an experimental condition. This level could be the target of statistical models, but not for explanatory theories. 
 	
@@ -36,89 +46,144 @@
 	
 	3. Finally, one may wish to model the actual production and comprehension processes. We might wish to predict the incremental understanding of a new reference expression given conversation history and context. Conversely, we might want to model the unit by unit production of a referring expression. This level of analysis could be seen as the algorithmic counterpart to the computational level approach in 2. Notably addressing these fine-grained process questions would require correspondingly detailed time course data to predict. 
 	
+	%TODO Mike would like a diagram or table or **something**
+	
+	%TODO precision and generalization
+	
 	Currently, we have formal models at none of these levels. Personally, I find the 2nd level the most promising, but ideally, we would have mutually compatible formal theories at all levels. In the rest of this introduction, I will discuss the current state of the literature and gesture at what types of work will be needed to bridge towards formal models. 
 	
 	I will cover approaches from four perspectives. First, the communication and reference game literature which provides descriptive characterizations of phenomena of interest. Next, I will discuss two optimization-oriented frameworks of efficiency and the Rational Speech Acts models. Each of these might be able to supply formal theory, although as we will see, there are significant challenges in lining these frameworks up with the rich, open-ended language data. Finally, I will touch on the psycholinguistic approach, which reveals some constraints that computational/optimization approaches may need to account for. 
 	
-%Good down to here!
+
 
 \section{Communication}
-The communication and conversation literature, especially with regard to referring expressions, has provided useful descriptive work, but is primarily made up of verbal theories that are vague and do not make clear-cut risky predictions. 
 
+
+%TODO forshadow the takeaways
+
+The communication and conversation literature, especially with regard to referring expressions, has provided useful descriptive characterizations of how people communicate in naturalistic and experimental settings. There is an accumulation of fairly consistent and reliable findings of reduction, convention, and partner-specificity that could be the targets of theorizing. These describe consistently observable trends, but they are difficult to compare quantitatively across studies because the appropriat. 
+
+Our understand and predictive power around these phenomena is limited. We do not know how they respond to ``twiddling the experimental knobs'', nor are there theories that make risky, testable predictions about necessary and sufficient conditions or the functional form.  these phenomenathere are not theoretical frameworks that make predictions about how this process works. We can describe the trends of what happens in the range of conditions that have been experimented on, but %TODO more work here what would happen if we twiddled the knobs? Unclear. What functional form does anything take? What are mechanisms that could inform the functional form?
+
+The communication and reference game literature provides descriptive theories that identify some phenomena of interest and raise questions around whether these phenomena occur intentionally or emerge as a by-product of other processes. These serve as a list of results that models could hope to explain. 
+
+However, our understanding of these phenomena is limited. We do not have ways to predict them quantitatively, nor do we have a grasp on the necessary or sufficient experimental conditions under which they occur (to what extent). In many cases, we do not even have consensus on how exactly the characterize the phenomena. In order to build strong theories, we first need clarity around what exactly the theories should be accounting for. 
+
+A core theoretical question is whether the observed patterns of reduction, convention, and partner-specificity require ``special'' mechanisms, or whether these results can sufficiently be explained by broader coverage theories of efficiency and rational communication.
 \subsection{Mentalizing versus Non-mentalizing approaches}
 
 A big question that comes up with conversation, and interactions between agents more generally, is whether and how agents track other agents internal states of knowledge and how this factors into their interaction.
 
-The ``mentalizing'' tradition treats humans as representing other humans as agents with mental states. Within this broad school, there is variation in how these representations are implemented, how information gets added or modified, what exactly is tracked, and when representations (versus heuristics) are used. 
+%TODO running example should reoccur here!
+
+
+The ``mentalizing'' tradition treats humans as representing other humans as agents with internal states that include knowledge and goals.  Within this broad school, there is variation in how these representations are implemented, how information gets added or modified, what exactly is tracked, and when representations (versus heuristics) are used. 
 
 Within this tradition, many use the term ``common ground'' to refer to knowledge that two agents share. In some cases, it is used in a pre-theoretic way to mean roughly ``things you think another person will understand and won't be surprised if you reference'' \citep{leung2023, garrison2022}. For instance,  \citet{hanna2003} defines common ground as the ``mutual knowledge, beliefs, and assumptions'' held by the interlocuters. This meaning is roughly comparably to ``givenness'' in other domains \citep{fay2010}. 
 
  However, the problem with the term ``common ground'' is that some use it in a theoretically very loaded way, originating from the privileged versus mutual versus common knowledge framework \citep{clark1996}. Under this usage, ``common ground'' is defined via infinite recursion in knowing that the other person knows that the first person knows that ...; this is the usage that comes up in formal semantics where many things may be introduced to common ground via accommodation \citep{horton1996, pickering2004}. In practice, humans don't tend to do more than a couple layers of recursion in their pragmatic reasoning \citep{franke2016}. Thus, it is generally not important to distinguish knowledge types at deeper recursion levels than mutual knowledge that both people know to be mutual. 
 
-How to deterministically populate these presumed knowledge representations has been the subject of much ink spillage \citep{horton1996,clark1996, brown-schmidt2012}. For our purposes, what another person knows or can be expected to understand is something that computational models will want as an input or intermediary, so that it can be used to evaluate utterance options. However, the knowledge state can clearly be probabilistic and may be inferred from empirical data. 
+How do we determine that something is mutually known with another person? Many approaches have tried to characterize when something is mutually known \citep{horton1996,clark1996, brown-schmidt2012}. This has predominately taken a deterministic approach with rules such as ``if it's in shared visual presence, it's mutually known''. Enumerating all the options doesn't work because we don't always have certainty around what is or isn't mutually known; someone can look at something in shared visual presence, but not know about it because they weren't attending. Visual presence may be a good heuristic, but good heuristics won't be perfect, and humans operate under uncertainty [ TODO CITE]. Understanding human communicative behavior also doesn't require a deterministic answer to when something is mutually known: what another person knows or can be expected to understand is something that computational models will want as an input or intermediary, so that it can be used to evaluate utterance options. However, the knowledge state can clearly be probabilistic and may be inferred from empirical data. 
 
+
+%TODO Gabe Doyle stuff
+%TODO  kids egocentric, naive egocentrism, naive realism, lexical alignment, keysar
+
+%TODO clarify wtf they would think mentalizing is unecessary and ego-centric as default
+
+%TODO connect to the lexical side 
 The mentalizing approaches can be contrasted with ``interactive alignment theory'' which attempts to explain how people can successfully collaborate on reference tasks without reasoning about each other's mental states \citep{pickering2004, gandolfi2022}. Its proponents claim that the alignment occurs via ``priming'' and is ``resource-free and automatic'', without providing a further explanation of what this means or how this works in terms of memory and processing \citep{pickering2004}.  Given that humans reason socially about each other readily and from a young age \citep{rakoczy2022}, it's not clear that there is a reason to prefer a non-mentalizing approach. 
 
 As an aside, the ``common ground'' tradition and the ``interactive alignment'' traditions have tended to use different types of experiments, with ``common ground'' generally using asymmetric director/matcher designs (dating back to at least \citet{krauss1966}) and the ``interactive alignment'' traditions using symmetric designs such as the `maze' task. Thus it is possible the two approaches are build around trying to explain differing sets of experimental results. 
 
+
+
+
 \subsection{Partner specificity, audience design, and sharing effort}
+
+% TODO partner specific often thought to be some sort of social representation, not just priming, 
+% TODO bring out that this is definitely in contrast to that above 
 
 One key phenomenon from iterated reference games to unfamiliar images is that switching matchers or adding a new matcher changes the describers behavior, as they shift to longer descriptions. This change in behavior is described as ``partner-specificity'', with the idea being that the conventional names developed with one partner as specific to that partnership \citep{brennan1996, metzing2003a, hawkins2021a}. The idea of partner-specificity is also referenced with regard to how different pairs diverge to different names for the targets \citep{hawkins2020b}. 
 
 Empirical evidence from experiments where one director talks with multiple partners suggests that people do ``partial pooling'' over their partners \citep{hawkins2021, yoon2014}. That is, a speaker A will show some variation in their expressions when talking to partner B versus partner C, but there will be some generalization between partners as well, so that A talking with B is more like A talking with C than D talking to E. When coupled with a tendency for descriptions to shorten within a pair, this leads to a jagged pattern of reference length: when switching to a new partner, speakers use longer utterances, but not as long as their initial utterance with their first partner \citep{yoon2019a}.  
 
-A related term is ``audience design'', the idea that speakers seem to be sensitive to the knowledge state of their listener and say things that are easy for the listeners to comprehend. Confusingly, ``audience design'' sometimes implies intention on the part of the speaker \citep{horton2002a, horton2005}, and sometimes is used when utterances are constructed based on what's easy for the speaker, and listener ease is a side effect \cite{horton1996, rogers2013, macdonald2013}.
-
+A related term is ``audience design'', the idea that speakers seem to be sensitive to the knowledge state of their listener and say things that are easy for the listeners to comprehend. Confusingly, ``audience design'' sometimes implies intention on the part of the speaker \citep{horton2002a, horton2005}, and sometimes is used when utterances are constructed based on what's easy for the speaker, and listener ease is a side effect \citep{horton1996, rogers2013, macdonald2013}.
+%TODO example or at least define/clarify
   Intention versus side-effect are difficult to distinguish between because speakers and listeners often share recent context, find the same things salient, and linguistically what is easier to produce is often easier to process. Thus, disentangling speaker and listener ease may require careful experimental designs where ease of production and ease of comprehension are separated \citep{ferreira2004}. 
   
-Questions around audience design are issue of how interlocuters split the communicative burden with one another. Depending on the task and the communication modality, there may be many options for how to balance the communicative load  \citep{clark1996, fay2010, foxtree2013}. For instance, a listener could describe what options they see or otherwise prompt the speaker. We might expect the load splitting to vary based on the capacities of the interlocuters (ex. a speaker might craft their utterances more when talking to a child versus an adult) and the capacities of the channels (ex. speakers may use different approaches if listeners can interrupt). 
+Questions around audience design are %TODO
+issues of how interlocuters split the communicative burden with one another. Depending on the task and the communication modality, there may be many options for how to balance the communicative load  \citep{clark1996, fay2010, foxtree2013}. For instance, a listener could describe what options they see or otherwise prompt the speaker. We might expect the load splitting to vary based on the capacities of the interlocuters (ex. a speaker might craft their utterances more when talking to a child versus an adult) and the capacities of the channels (ex. speakers may use different approaches if listeners can interrupt). 
+
+%TODO clarify here that this supports social/mentalistic theory
 
 Multi-way conversations complicate the verbal theories of audience design and partner specificity by introducing a larger audience of more partners. Two main questions are whether ``aim low'' or ``aim high'' in balancing the needs of the listeners and whether speakers track individual listeners or an aggregate \cite{yoon2014}. Empirical results indicate that speakers are sensitive to the knowledge states of listeners in a gradient way \citep{yoon2014, yoon2018, yoon2019}. At least in small groups, speakers can track the correspondence between individual listener identity to histories and knowledge states, and can incorporate contextual factors that modulate task difficulty into their considerations \citep{yoon2019a}. Speakers also take strategies in group-contexts that don't occur as often in dyadic contexts, such as referring to a target with both the name that one person will understand and a elaborated description that will help another person get on the same page \citep{yoon2018}. The ability to track partner's knowledge states presumably would degrade as groups got bigger, but this paradigm has not been used for groups large enough for this to happen. 
 
 \subsection{Convention formation}
 Over repetitions with the same partner, dyads in repeated reference games tend to form shared ``conventions'' (also called ``conversational pacts'') about how to refer to the initially ambiguous targets. These conventions tend to be partner- and context-specific: changes in the speaker, audience members, or changes in the context can all license the use of a new description \citep{metzing2003a, ibarra2016, yoon2014}.
 
-What exactly does convention formation refer to? There is ambiguity about what level of specificity convention formation and conceptual pacts refer to. It could be on the lexical level, such as calling a figure ``ballerina''. It could be conceptualizing the figure as a ballet dancer with a tutu (manifesting in descriptions with semantic association, but not lexical overlap, such as ``ballerina'' and ``dancing in a tutu''). It could also be a general paradigm for how to describe figures, such as in terms as humans in different postures.  \citet{horton2002a} distinguishes between ``lexical entrainment'' when the same words are reused, and ``conceptual similarity'' when there is broader similarity that does not repeat the same words. These levels often co-occur, but in order to model the phenomenon, we need to be clear about which is meant in order to operationalize it.  
+What exactly does convention formation refer to? There is ambiguity about what level of specificity convention formation and conceptual pacts refer to. It could be on the lexical level, such as calling a figure ``ballerina''. It could be conceptualizing the figure as a ballet dancer with a tutu (manifesting in descriptions with semantic association, but not lexical overlap, such as ``ballerina'' and ``dancing in a tutu''). It could also be a general paradigm for how to describe figures, such as in terms as humans in different postures.  \citet{horton2002a} distinguish between ``lexical entrainment'' when the same words are reused, and ``conceptual similarity'' when there is broader similarity that does not repeat the same words. These levels often co-occur, but in order to model the phenomenon, we need to be clear about which is meant in order to operationalize it.  
+
+%TODO make sure we've more explicitly said that we want computation or mathematical model of communication
 
 The semantic meaning of a description is not a priori related to its length, but these two features empirically tend to correlate in iterated reference games \citep{hawkins2020b}.  Thus ``reduction'' or the shortening of utterances is sometimes used as a shorthand and measurement proxy for the semantic changes \citep{clark1986, hawkins2021}. Convention and reduction are sometimes conflated with partner-specificity, as these phenomena often co-occur with different pairs forming different conventions and changes in group composition leading to (temporarily) longer descriptions \citet{clark1986, wilkes-gibbs1992}. 
 
 It remains an empirical question whether the shortening of utterances, convention formation, and partner-specificity of descriptions are inseparable or merely occur together in the experimental paradigms considered in the literature. 
 
-How might convention formation change with group size? One angle on larger groups is network structures, where convention formation has been studied on networks of up to 50 people \citep{guilbeault2021}. In this communication game with targets varying over continuous space, large groups tend to end up with fairly consistent category boundaries across independent networks, while small networks can support more idiosyncratic category boundaries. This work is suggestive that there may be group-size and group/network-structure dependencies on what sort of conventions arise. There has been some work on group and network designs in traditional iterated reference games, but only on relatively small groups. 
+Testing these patterns would require studying the phenomena in more varied experimental situations. One question is how convention formation might change with group size, as some of the pieces, like partner-specificity seem like they will have to fall apart if groups grow to dozens of people.  How might convention formation change with group size? One angle on larger groups is network structures, where (non-linguistic) convention formation has been studied on networks of up to 50 people \citep{guilbeault2021}. In this communication game with targets varying over continuous space, large groups tend to end up with fairly consistent category boundaries across independent networks, while small networks can support more idiosyncratic category boundaries. This work is suggestive that there may be group-size and group/network-structure dependencies on what sort of conventions arise. There has been some work on group and network designs in traditional iterated reference games, but only on relatively small groups. 
 
 Typically, in convention formation, holistic or analogic descriptions are the ones that stick \citep{clark1986}, but this isn't absolute. Groups can successfully coordinate on reference using many different types of names, including ones that pick up on low-level or meta-level features. The range of successful options makes explaining convention formation harder, and suggests  suggests a strong path dependency for how reduced utterances evolve, potentially influenced by factors such as relationships and humor value. 
 
+\subsection{Developmental work}
+
+%TODO who doesn't want to do a lit review of the developmental work here
+
+%TODO what the studies are!!!
+
+\subsection{Takeaways} 
+
+The communication and reference game literature provides descriptive theories that identify some phenomena of interest and raises questions around whether these phenomena occur intentionally or emerge as a by-product of other processes. Within the narrow range of experimental paradigms, clear patterns around reduction, convention, and partner-specificity are robustly observed, and could form a list of results that models could hope to explain and predict. Our current understanding of these phenomena is limited. We do not have ways to predict them quantitatively, nor do we have a grasp on the necessary or sufficient experimental conditions under which they occur (to what extent). In many cases, we do not even have consensus on how exactly the characterize the phenomena. In order to build strong theories, we first need clarity around what exactly the theories should be accounting for. A core theoretical question is whether the observed patterns of reduction, convention, and partner-specificity require ``special'' mechanisms, or whether these results can sufficiently be explained by broader coverage theories of efficiency and rational communication. 
+
+I next describe these broader coverage theories before returning to the question of how to join them to the phenomena of interest. 
 
 
-\subsection{Takeaways} The communication and reference game literature provides descriptive theories that identify some phenomena of interest and raise questions around whether these phenomena occur intentionally or emerge as a by-product of other processes. These serve as a list of results that models could hope to explain. 
-
-However, our understanding of these phenomena is limited. We do not have ways to predict them quantitatively, nor do we have a grasp on the necessary or sufficient experimental conditions under which they occur (to what extent). In many cases, we do not even have consensus on how exactly the characterize the phenomena. In order to build strong theories, we first need clarity around what exactly the theories should be accounting for. 
-
-A core theoretical question is whether the observed patterns of reduction, convention, and partner-specificity require ``special'' mechanisms, or whether these results can sufficiently be explained by broader coverage theories of efficiency and rational communication. 
+%One sign here may be that it would be difficult to meta-analyze the results to look for moderators like group size; for instance, for reduction phenomena, should it be average decrease in words per repetition? percent decrease in words from first to second repetition? There's hints that we think there's some functional form where the rate of decrease should be higher the longer the utterance is and there's an expected plateau at some floor
 
 
 \section{Efficiency}
+
+%TODO promote the takeaway
+
 One unifying framework gaining traction in psycholinguistics is efficiency, the idea that language and language use is under pressure to support efficient communication by maximizing the ratio of relevant information transmitted to effort. Efficiency is thought to arise from trade-offs between communicative expressivity and some combination of learnability and easy of production \citep{piantadosi2012, kirby2015}. 
 
 Evidence for efficiency comes from the argument that features of language are distributed much more closely to the Pareto frontier than would be expected by chance. A historically well-known example is that word frequencies follow a power-law distribution, which \cite{zipf1949} explains in terms of a ``principle of least effort'', although note that power-law distributions are common across domains and generated by a variety of processes \cite{piantadosi2014}. Stronger evidence comes from the lexical partitioning of subdomains such as color, number, and kinship terms, where the distribution of systems falls on the frontier between complexity (number of terms) and informativity (how many bits each term provides) \citep{zaslavsky2018, kemp2018, gibson2019}. Syntactic features of language such as harmonic word order and dependency length also appear to be optimized for increased expressivity with minimized processing effort \citep{gibson2019, hawkins1995}. 
 	
 Efficiency arguments are based on the language artifacts of grammars and transcripts, but efficiency pressures act on language use as a process, not language as a static code \citep{gibson2019}. Thus efficiency can be seen as imposing a joint constraint on the entire communicative process: minimizing the total time and effort involved in going from an idea in one person's head to a sufficiently close idea in another person's head. A corollary of this framing is that shorter utterances (as measured in syllables or clock-time) are not always efficient if they take longer to produce or parse. 
 
+
+
 \subsection{Redundancy and over-informative referring expressions}
-One apparent counter example to efficiency is the use of so-called ''redundant'' color adjectives and ''over-informative'' referring expressions. These terms reflect the intuition that people's propensity to label something as a ``blue cup'' when there are not other cups around goes against the idea of efficient language use \citep{rubio-fernandez2021}. 
+How do we reconcile the evidence that language is efficient with violations of efficiency in language use (``look at the yellow banana'') and the ubiquity of ambiguous utterances?
 
-Several issues arise here. Claims of redundancy or over-informativity require a definition of what would be minimally informative, which in turn depends on a commitment to a fully specified semantic-pragmatic system. For instance, if specificity implicatures are within the option space, are those calculated before or after informativeness is measured \cite{bergen}? One could sidestep the thorny theoretical by empirically measuring the information content of different utterances by how they shift the entropy of the distribution of inferred meanings \cite{degen20200406}, but this does not scale up well. 
+Terms such as ''redundant'' and ''over-informative'' are commonly used to describe situations where people produce modifiers that do not restrict the extension of a noun phrase (e.g. ''blue cup'' when only one cup is salient) \citep{rubio-fernandez2021}. People do produce these non-restricting modifiers in reference tasks, especially for color, but this behavior seems to run counter to the idea of efficient language use. Is this a contradiction? 
 
-The flip side of ''redundancy'' is ambiguity: many, many utterances are ambiguous. In general, strong contextual factors render the ambiguity a non-issue \cite{piantadosi2012}, but this means we can't judge language out of the physical and social context it is used in. Determining what is efficient language use in context requires not just analyzing phrases and their alternatives, but also how long utterances take to generate and comprehend, which may be highly contingent on contextual factors and conversational history. 
+Formalizing claims of redundancy or over-informativity requires a definition of what would be minimally informative, which in turn depends on a commitment to a fully specified semantic-pragmatic system. For instance, if specificity implicatures are within the option space, are those calculated before or after informativeness is measured \citep{bergen}? One could sidestep the thorny theoretical by empirically measuring the information content of different utterances by how they shift the entropy of the distribution of inferred meanings \citep{degen20200406}, but this does not scale up well. 
+
+The flip side of ''redundancy'' is ambiguity: many, many utterances are ambiguous. In general, strong contextual factors render the ambiguity a non-issue \citep{piantadosi2012}, but this means we can't judge language out of the physical and social context it is used in. Determining what is efficient language use in context requires not just analyzing phrases and their alternatives, but also how long utterances take to generate and comprehend, which may be highly contingent on contextual factors and conversational history. 
 
 The idea that utterances should have ``just enough'' information has inspired a wealth of empirical research into what utterances people produce and what utterances people comprehend. By comparing these two halves of language use, we can determine how calibrated utterances are to what other people will understand. 
 
+
 \subsection{Takeaways}
-Efficiency is very hard to cache out in specific predictions because of the many time scales the pressures operate on: what's efficient for an utterance in isolation may not be efficient when considered over an entire life of language use. Thus, the efficiency framework is not directly testable, but it's goodness as a theory instead relies on the parsimony of the linking theories that are required to meld it to the data. 
+Sometimes, judging whether something is efficient or not may be clear cut, if all reasonable sets of assumptions return the same result. It is perhaps easier to judge something to be inefficient if there is a shorter alternative that is both easier to produce and easier to comprehend. In the general case, however, efficiency is very hard to cache out in specific predictions because of the many time scales the pressures operate on. What's efficient for an utterance in isolation may not be efficient when considered over an entire life of language use. Thus, the efficiency framework is not directly testable, but it's goodness as a theory instead relies on the parsimony of the linking theories that are required to meld it to the data. 
 
 With regard to iterated reference games, interlocutor behavior is informally referred to as efficient (in particular, the formation of reduced conversational pacts) \citep{clark1986, hawkins2020b}. I am not aware of formal analyzes of the efficiency of produced expression, so I believe it is an open question whether speakers are correctly calibrated on what utterances listeners will understand. If utterances are not calibrated, it calls into question some claims about what reduction and partner-specific utterances represent, although an efficiency account could still be salvaged if the bottleneck is on the production side.
 
+%TODO see the worked out example, but de-compress this 
+
 \section{Rational Speech Acts Models}
+
+%TODO promote the takeaway
 
 Rational Speech Acts (RSA) is an information-theoretic, computational framework for making quantitative predictions about pragmatic inferences in context \citep{goodman2016, frank2012a}. The basic idea of the RSA family of models is to picture two interlocuters recursively reasoning about how the other would produce or interpret utterances, grounding out in a listener (or speaker) who behaves in a pre-specified ``literal'' way. 
 
@@ -134,21 +199,29 @@ Perhaps the largest challenge to RSA models is the question of how to ground out
 
 Soft semantics can run into conflict with compositionality: either every possible utterance must independently receive a degree of match with every possible object in the prior, or the prior needs to include rules for how to determine the match of a whole utterance on the basis of the match with each component. In a later experiment of \citep{degen20200406}, typicality effects made compositional semantics not work, but the utterance space was small enough that each utterance could be treated individually. 
 
- In less toy domains, there is not a satisfactory answer: some situations can be handled by empirically measuring likelihoods in an exhaustive ways, but this holistic approach is not compatible with incremental RSA \citep{cohn-gordon2018a} or larger sets of utterances that require compositionality to be defined. In order to extend this model towards more realistic and open-ended scenarios, an important question to grapple with is what form of meaning (even at a computational level) will appropriately support pragmatic reasoning. 
+ In less toy domains, there is not a satisfactory answer: some situations can be handled by empirically measuring likelihoods in an exhaustive ways, but this holistic approach is not compatible with incremental RSA \citep{cohn-gordon2018a} or larger sets of utterances that require compositionality to be defined. Some work has used grounded neural language models for alternative generation and likelihood measures, which has scaling potential in domains that have the right grounded datasets \citep{monroe2015, white2020, cohn-gordon2018}.  In order to extend this model towards more realistic and open-ended scenarios, an important question to grapple with is what form of meaning (even at a computational level) will appropriately support pragmatic reasoning. 
+ 
+ %TODO re-read the neural RSA stuff
+ 
 
 \subsection{RSA approaches to reduction}
 Scaling up RSA to handle reference games requires solving at least two problems. One is specifying a semantics system that can handle the abstract, metaphoric, and parts-based descriptions that are used -- this could be seen as the problem of accounting for initial reference. 
 
 Secondly, one must explain how to go from one successful utterance to a different (often shorter) utterance. One RSA-style model that attempts to explain why multi-part descriptions are produced initially, but shorter descriptions are produced later is CHAI,  a framework to bridge different levels of convention formation \citep{hawkins2021}.
 
-CHAI incorporates parameterized hierarchical uncertainty over lexica that allow for variability in how words will be interpreted that can be integrated over. Listeners' lexica are not fully known which accounts for background differences that may be shared by a sub-population and differences from communication history that may be individual-specific. The results of inference update these priors, and propagate the new information to both the individual and group lexical representations. CHAI can qualitatively account for various convention-formation phenomena in toy systems \cite{hawkins2021}.
+CHAI incorporates parameterized hierarchical uncertainty over lexica that allow for variability in how words will be interpreted that can be integrated over. Listeners' lexica are not fully known which accounts for background differences that may be shared by a sub-population and differences from communication history that may be individual-specific. The results of inference update these priors, and propagate the new information to both the individual and group lexical representations. CHAI can qualitatively account for various convention-formation phenomena in toy systems \citep{hawkins2021}.
 
 CHAI's explanation for reduction is consistent with the ambiguity arguments of \citet{piantadosi2012}: initially the context is not sufficiently constraining to resolve the ambiguity of a short utterance, so multiple descriptive pieces are needed to triangulate the meaning, but as conversational history accrues, the context is sufficient to disambiguate the shorter description. 
 
 In toy models of interlocuters playing a reference game with soft semantics, initial utterances use multiple properties to collectively increase the degree of certainty in the target. This successful reference then shapes the prior over word meanings, until the degree of certainty afforded by only one word is sufficient to pick out a referent. 
 
+%TODO do we find this explanatory? what's needed? what's solved? 
+
 
 \subsection{Takeaways}
+
+%TODO unpack
+
 RSA seems like the most relevant theoretical framework to a sequential model of iterated reference games. Two potential problems are scaling up to an open vocabulary and free parameters will lead to high flexibility and a lack of risky prediction \citep{meehl1990}.
 
 The open vocabulary problem is a hard one; rather than wait for a fully realized semantic system, I think one criteria for judging the adequacy of semantic systems is whether they can serve as a linking hypothesis to allow RSA models to predict the patterns of pragmatic language use that are observed experimentally. 
@@ -159,14 +232,16 @@ CHAI, while not a full explanation for the full patterns of real-world data, is 
 
 The utterances in reference games that optimization-oriented theories seek to explain are the product of lower-level, incremental processes. The algorithmic level of linguistic communication is constrained by its instantiation in the mind. To the extent we can infer these constraints from fine-grained behavior or transfer these constraints from other areas of psycho- and neuro-linguistics, these constraints may provide bounds for the computational models. 
 
+%TODO mike is dubious about this for so-called "computational level" models or something
+
 \subsection{Top-down or bottom-up}
 One large question in language processing and production broadly is what the relative balance of bottom-up and top-down influences are \citep{gwilliams2022,tanenhaus1995,horton2005, horton1996}. 
 
-In the psycholinguistics of reference games, a hotly debated issue is whether the early moments of production and processing are ``ego-centric'' or can be influenced by non-linguistic information, such as the perspective of the interlocuter. On the production side, \citet{horton1996} attempted to test this theory by comparing utterances produced with and without time pressure. They interpret the apparently ego-centric utterances in the speeded condidtion as evidence that initial utterance planning is ego-centric, but that monitoring and fixing of the utterance may take into account the listener's perspective, and may occur prior to utterance initiation. 
+In the psycholinguistics of reference games, a hotly debated issue is whether the early moments of production and processing are ``ego-centric'' or can be influenced by non-linguistic information, such as the perspective of the interlocuter. On the production side, \citet{horton1996} attempted to test this theory by comparing utterances produced with and without time pressure. They interpret the apparently ego-centric utterances in the speeded condition as evidence that initial utterance planning is ego-centric, but that monitoring and fixing of the utterance may take into account the listener's perspective, and may occur prior to utterance initiation. 
 
 On the comprehension side, \citet{keysar2000} argued for an initially egocentric perspective on the basis that people often initially look at objects that are good matches to a description even if the object is not mutually visible to the speaker. This interpretation rests on a couple dubious linking hypotheses: that if people consider an interlocuters perspective, their prior should be that the interlocuter only refers to mutually known things;  and separately, that looking at an object is a sign that it is considered a potential referent (eye-tracking data is widely interpreted this way, but there is evidence that this proxy is only approximate \citet{degena}).
 
-The counterpoint to initial ego-centrism presented by \citet{hanna2003} is a constraint-based theory where many factors can play into comprehension, including working memory limitations. Many factors may influence language production and comprehension, to varying extents, and on differing time courses. Determining the relative timings and weights is an important endeavor; as these experiments show, it's empirically difficult to do so when the measurements are far from the constructs and there are many nuisance variables to abstract over. 
+The counterpoint to initial ego-centrism presented by \citet{hanna2003} is a constraint-based theory where many factors can play into comprehension, including working memory limitations. Many factors may influence language production and comprehension, to varying extents, and on differing time courses. Determining the relative timings and weights is an important endeavor; as these experiments show, it's empirically difficult to do so when the measurements are far from the constructs and there are many nuisance variables to abstract over. %TODO unpack why I'm concerned about this 
 
 \subsection{Production constraints}
 In additional to possible information-integration timing limitations on optimality, the retrieval and generation of utterances may be another source of deviation from optimal models. Utterance planning is difficult, and production biases such as easy first, plan reuse, and reduce interference may produce deviations from information-theoretic predictions \citep{macdonald2013}.
@@ -175,9 +250,13 @@ Another limitation is the search problem of production. RSA and other computatio
 
 \subsection{Takeaways}
 
+%TODO re-paragraphify this thing
+
 Some of the questions raised from a psycholinguistic angle are about the fine-grained time course of reference games: how utterances are generated and interpreted and what information is integrated when. Some other questions are about the the general processes of language cognition which this instance of language use shares with other instances of language use.
 
 Studying reference games on this level needs a different type of data (eye-tracking, timing details of utterances and responses) than the previous that can rely on transcripts of games. 
+%TODO Mike would like a better articulated model of  the relevance of this data
+
 
 \section{Ways forward}
 
@@ -202,34 +281,43 @@ Studying reference games on this level needs a different type of data (eye-track
 	
 	Another empirical avenue is to fill in descriptive details on the process of reduction. This will require finding useful joints to carve the rich language data into. Quantitatively, what types of utterances tend to occur after what other utterances? One could imagine trying to map the probabilistic FSA and transition probabilities that descriptively characterize language of iterated reference games.
 	
-	Another third approach is to push down a level of analysis and do empirical work looking at how utterances are produced rather than just recording what descriptions are produced. This might be especially useful for initial descriptions where the search problem is the hardest. 
+	Another third approach is to push down a level of analysis and do empirical work looking at how utterances are produced rather than just recording what descriptions are produced. This might be especially useful for initial descriptions where the search problem is the hardest. %TODO spell out what the search problem is 
 	
 	\subsection{Theory side}
 	
-	In the introduction, I listed three scales on which one might try to make theories: the scale of an entire conversation, the scale of one instance of referring, and the scale of incremental production and comprehension. 
-	I think the most viable of these is the increment of what to say or how to interpret given a certain communication history: one can usefully compare options and condition on the prior. 
+	%TODO unpack all of this a little more b/c it's hard to parse
 	
-	The big questions here are how to handle open-ended semantics and how to construct the alternative set. Is predicting utterances even the right granularity? Would predicting coarser features such as number of clauses or semantic attributes of the description be a better balance between tractability and explanatory power? What would constitute a viable minimal  non-toy model? 
+	In the introduction, I listed three scales on which one might try to make theories (see TODO FIGURE): the scale of an entire conversation, the scale of one instance of referring, and the scale of incremental production and comprehension. 
+	I think the most viable of these is the second, where we try to get predictive or causal traction of the incremental steps in the conversation. 
 	
-	Formal theories of multi-party communication are another underexplored appraoch. Building a non-dyadic RSA that can represent uncertain knowledge states or jointly optimize for the responses of multiple interlocuters would be one way to scale up. 
+	This scale is the closest to having formal models available, in the form of RSA-style models and CHAI. The conversation history up to the point of the utterance can be used to shape the prior IN SOME WAY THAT WE WILL TOTALLY GESTURE AT. Then the goal is predicting the next utterance or how the prior utterance will be interpreted (which could be pushed into a guess or ask for more information function). This parallels the RSA task of predicting an utterance option or predicting an utterance interpretation depending on whether it is listener or speaker side. 
+	
+	%Basically, given a history to a certain point, how to predict what interpretations or utterances are likely to occur. In an RSA-style framework, the  % increment of what to say or how to interpret given a certain communication history: one can usefully compare options and condition on the prior. 
+	Two big questions here are how to handle the open-ended semantics and how to construct the alternative set, as discussed above. In addition to trying to scale to match the open-ended semantics and alternatives, one could instead switch the prediction problem to a different scale of granularity. One possibility is to predict not the lexical items themselves, but some of the properties, such as the number of clauses, or the semantic attributes. Thus, rather than needing to predict whether a speaker says ``ice skater'' or ``ice skater with their arms up'' or ``ice skater with a leg out to the left'' or ``t-rex'' or ``figure with one arm up and one leg out'', one could try to code this in terms of "holistic description" versus "body part" and then for each target and description-type pair specify an initial semantics, combination rules, and update rules. This sort of coarser approach may be more tractable, but also has lower predictive value. A question here is what would constitute a viable minimal non-toy model of the reduction and partner-specificity phenomena. 
+	
+	%TODO ugh this is getting away from RSA though
+	%The big questions here are how to handle open-ended semantics and how to construct the alternative set. Is predicting utterances even the right granularity? Would predicting coarser features such as number of clauses or semantic attributes of the description be a better balance between tractability and explanatory power? What would constitute a viable minimal  non-toy model? 
+	
+	%TODO you are here
+	Formal theories of multi-party communication are another underexplored approach. Building a non-dyadic RSA that can represent uncertain knowledge states or jointly optimize for the responses of multiple interlocuters would be one way to scale up. 
 	
 	Efficiency makes fairly vague predictions, and may be hard to crystallize out. One approach would be to treat the transcripts as some sort of artifact and try to determine potential counterfactuals, to see where the attested patterns fall on some larger space. Defining the space of possibilities could be difficult, and determining the information value of counterfactuals may require empirical testing. But one could address the open question of whether on a comprehension side, the observed patterns are efficient. This leaves out the potential that production side is the bottleneck on efficiency.  
 	
 	
 	\section{Outline of the dissertation}
 	%TODO
-	TODO WHAT'S THE CAUSAL MODEL SO I CAN HAVE A CUTE OVERVIEW DIAGRAM
+	%TODO WHAT'S THE CAUSAL MODEL SO I CAN HAVE A CUTE OVERVIEW DIAGRAM
 	
 	%TODO
 	In this thesis, I focus on starting to fill in some of the data gaps discussed above. I hope that this work better characterizing the phenomena of interest across contexts and levels of analysis provides some ground-work for future theory development. 
 
 	1) In the first substantive chapter, I take a broader look at when reduction and semantic convergence patterns occur by looking at larger groups and different modalities. 
 	
-	2) Using the transcripts from 1), I then dig into the verbal data at a finer-grained level to get a grasp on at the more utterance-to-utterance evolution of descriptions. 
+%	2) Using the transcripts from 1), I then dig into the verbal data at a finer-grained level to get a grasp on at the more utterance-to-utterance evolution of descriptions. 
 	
-	3) Again using the descriptions from 1), I test some of the partner-specificity and efficiency-claims in a listener-only paradigm to see how naive listeners understand descriptions from various timepoints in games. Additionally, I use incremental methods to understand some of the time course of comprehension of these descriptions. 
+	2) Using the descriptions from 1), I test some of the partner-specificity and efficiency-claims in a listener-only paradigm to see how naive listeners understand descriptions from various timepoints in games. Additionally, I use incremental methods to understand some of the time course of comprehension of these descriptions. 
 	
-	4) Finally, I examine some of the developmental origins of the skills behind ad-hoc reference with experimental results from 4-5 yo children playing a scaled down version of iterated reference games. 
+	3) Finally, I examine some of the developmental origins of the skills behind ad-hoc reference with experimental results from 4-5 yo children playing a scaled down version of iterated reference games. 
 
 	
 %	
